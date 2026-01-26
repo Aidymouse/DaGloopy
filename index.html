@@ -134,7 +134,7 @@
         load_article(
           `public/${content}`,
           async (res, processed, text = null) => {
-            viewed_article.innerHTML = processed;
+            article_content.innerHTML = processed;
           },
         );
 
@@ -152,7 +152,7 @@
       /**
        * @param url (string)
        * @param load_callback (async (res, processed_content, text=null) => void)
-       * NOTE: the text is already read on the res
+       * NOTE: the text is already read on the res it'll be passed back as the text property, otherwise null
        */
       window.load_article = (url, load_callback) => {
         if (!url.includes("content")) {
@@ -236,6 +236,17 @@
             <h2>12 Room Dungeon Blocks</h2>
           </article>
 
+          <article
+            class="book"
+            draggable="true"
+            ondragstart="book_dragstart(event)"
+            ondragend="book_dragend(event)"
+            onpointerup="book_pointerup(event)"
+            data-contenturl="content/dagloopyrpg/birthright, mausritter, rules light warfare.md"
+          >
+            <h2>Birthright, Mausritter, Rules Light Warfare</h2>
+          </article>
+
           <!-- Code populated end -->
         </section>
 
@@ -249,10 +260,15 @@
     </main>
 
     <main class="screen" id="viewer_view">
-      <nav>
-        <button onclick="close_viewer()">Back</button>
-      </nav>
-      <section id="viewed_article"></section>
+      <section id="viewed_article">
+		  <nav>
+			<button onclick="close_viewer()">Back</button>
+		  </nav>
+
+			<article id="article_content">
+			</article>
+		</section>
+		<footer style="height: 5em"> </footer>
     </main>
   </body>
 </html>

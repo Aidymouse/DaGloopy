@@ -13,16 +13,20 @@
   overflow: scroll;
 }
 
-#viewer_view nav {
-  margin-top: 5em;
-}
 
 #viewed_article {
-  min-height: 50%;
-  height: 50%;
+	display: block;
+	min-height: 50%;
+	height: auto;
+	/* max-height: none; */
+  margin-top: 5em;
   width: 50%;
   max-width: 50%;
   min-width: 200px;
   background-color: var(--article-bg);
-  padding: 1em;
+}
+
+#article-content {
+  padding-left: 1em;
+  padding-right: 1em;
 }
