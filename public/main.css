@@ -1,0 +1,45 @@
+* {
+  /** Dark Colors **/
+  --desk-bg: #1a0d00;
+  --desk-desktop: #4d2600;
+
+  --article-bg: #333333;
+
+  --shelf-bg: #1a0d00;
+  --shelf-shelftop: #4d2600;
+
+  --book-bg: #996633;
+
+  --text-main: #f2f2f2;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+
+  color: var(--text-main);
+	font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  overflow: hidden;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+}
+
+/** Inputs **/
+button {
+  outline: none;
+  border: none;
+  border-radius: none;
+}
