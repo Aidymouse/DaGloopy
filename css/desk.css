@@ -19,7 +19,7 @@
 /** Articles that are open on the desk */
 #desktop article {
   position: absolute;
-	left: -100%;
+  left: -100%;
   width: 20em;
   height: 30em;
   padding: 1em;
