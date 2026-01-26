@@ -3,20 +3,21 @@
   left: 0%;
   transition-duration: 0.2s;
   background-color: var(--desk-bg);
+  display: grid;
+  grid-template-rows: 5em 1fr;
 }
 
 #shelf {
-  display: grid;
-  grid-template-rows: 5em 1fr;
-
   width: 100%;
   height: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
 }
 
 #shelftop {
+  display: grid;
   background-color: var(--shelf-shelftop);
-  height: 5em;
 }
 
 /** A shelf bay holds books */
@@ -24,6 +25,12 @@
   max-height: 100%;
   height: 100%;
   width: 33%;
+}
+
+.shelf-seperator {
+  background-color: var(--shelf-shelftop);
+  height: 100%;
+  width: 1em;
 }
 
 /** An article sitting on the shelf has the class book */

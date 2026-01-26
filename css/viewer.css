@@ -10,13 +10,12 @@
   flex-direction: column;
   align-items: center;
   /*justify-content: center;*/
-  overflow: scroll;
+  overflow: auto;
 }
 
 
 #viewed_article {
 	display: block;
-	min-height: 50%;
 	height: auto;
 	/* max-height: none; */
   margin-top: 5em;
@@ -24,9 +23,10 @@
   max-width: 50%;
   min-width: 200px;
   background-color: var(--article-bg);
+  margin-bottom: 5em;
 }
 
-#article-content {
+#article_content {
   padding-left: 1em;
   padding-right: 1em;
 }

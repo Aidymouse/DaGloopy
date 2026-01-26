@@ -147,6 +147,7 @@
 
       window.close_viewer = () => {
         viewer_view.style.display = "none";
+        article_content.innerHTML = "";
       };
 
       /**
@@ -219,10 +220,13 @@
 
     <main class="screen" id="shelf_view">
       <nav id="shelftop">
+        <section id="shelftop-content">
         <button onclick="go_to_desk_view()">To Desk</button>
+        </section>
       </nav>
 
       <section id="shelf">
+        <div class="shelf-seperator"></div>
         <section class="shelf-bay">
           <!-- Code populated start -->
           <article
@@ -250,7 +254,11 @@
           <!-- Code populated end -->
         </section>
 
-        <aside class="shelf-seperator"></aside>
+        <div class="shelf-seperator"></div>
+        <section class="shelf-bay"></section>
+        <div class="shelf-seperator"></div>
+        <section class="shelf-bay"></section>
+        <div class="shelf-seperator"></div>
       </section>
 
       <section
@@ -262,13 +270,13 @@
     <main class="screen" id="viewer_view">
       <section id="viewed_article">
 		  <nav>
-			<button onclick="close_viewer()">Back</button>
+		    <button onclick="close_viewer()">Back</button>
 		  </nav>
 
-			<article id="article_content">
-			</article>
-		</section>
-		<footer style="height: 5em"> </footer>
+		  <article id="article_content">
+		  </article>
+      </section>
+      <footer style="height: 5em"> </footer>
     </main>
   </body>
 </html>
