@@ -20,17 +20,16 @@
 	display: block;
 	height: auto;
 	/* max-height: none; */
-  margin-top: 5em;
-  width: 60%;
-  max-width: 50%;
-  min-width: 200px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  width: 40%;
+  max-width: 40%;
+  min-width: 40em;
   background-color: var(--article-bg);
-  margin-bottom: 5em;
 }
 
 #article_content {
   padding-left: 3em;
   padding-right: 3em;
-  padding-bottom: 3em;
   line-height: 1.5;
 }
