@@ -51,6 +51,9 @@
 
 .book h2 {
   margin: 0;
+  margin-left: 0.5em;
+  font-weight: normal;
+  font-size: 14pt;
 }
 
 .book summary {
