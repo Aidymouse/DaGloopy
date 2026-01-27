@@ -29,7 +29,6 @@
   height: 5em;
 }
 
-
 #shelftop #shelftop-content {
   /*
   grid-column: 3/4;
@@ -38,9 +37,6 @@
   background-color: var(--shelf-shelftop);
   height: 5em;
 }
-
-
-
 
 /** A shelf bay holds books in a column */
 .shelf-bay {
@@ -63,7 +59,7 @@
   background-color: var(--book-bg);
   height: 2em;
   align-items: center;
-  transition-duration: 0.2s;
+  transition: margin 0.2s;
   user-select: none;
   z-index: 1;
 }

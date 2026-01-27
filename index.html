@@ -73,14 +73,14 @@
         const book_url = dragged_book.getAttribute("data-contenturl");
 
         desktop.innerHTML += `<article
-					id="book_${"book"}"
-				  draggable="true"
-				  ondragstart="article_ondragstart(event)"
-				  ondragend="article_ondragend(event)"
-				>
-				  <h2>${"Hello"}</h2>
-				  <p>${"This artcle"}</p>
-				</article>`;
+				id="book_${"book"}"
+				draggable="true"
+				ondragstart="article_ondragstart(event)"
+				ondragend="article_ondragend(event)"
+			      >
+				<h2>${"Hello"}</h2>
+				<p>${"This artcle"}</p>
+			      </article>`;
       };
 
       window.desk_dragover = (e) => {
@@ -110,8 +110,9 @@
         dragged_article = e.target;
       };
 
-      /** Shelf Code */
-
+      /**
+       * SHELF CODE
+       */
       window.load_shelf = () => {};
       let dragged_book = null;
 
@@ -126,29 +127,29 @@
         dragged_book = null;
       };
 
-      /** VIEWER CODE **/
+      /**
+       * VIEWER CODE
+       **/
+      const trans = 0.4;
+      let viewed_book = null;
       window.book_pointerup = (e) => {
         const content = e.currentTarget.getAttribute("data-contenturl");
-        console.log(content);
+
+        e.currentTarget.style.opacity = "0";
+        viewed_book = e.currentTarget;
 
         load_article(
           `public/${content}`,
           async (res, processed, text = null) => {
-
-            setTimeout( () => {
+            // Simulate 1 second load time with setTimeout
+            setTimeout(() => {
               article_content.innerHTML = processed;
-              article_content.style.height = "0px"
-              const a = article_content.offsetLeft;
-              article_content.style.height = "100%"
-            }, 1000)
+              mock_article_content.innerHTML = processed;
 
-
-            /*const article_rect = viewed_article.getBoundingClientRect()
-
-            floating_loader.style.left = `${article_rect.x}px`
-            floating_loader.style.height = `${article_rect.height}px`
-            floating_loader.style.opacity = "0"
-            */
+              floating_loader.style.height = "auto";
+              article_content.classList.add("open");
+              mock_article_content.classList.add("open");
+            }, 0);
           },
         );
 
@@ -158,37 +159,74 @@
       window.initiate_viewer = (e) => {
         viewer_view.style.display = "flex";
 
-        const clicked_rect = e.currentTarget.getBoundingClientRect()
+        mock_article_content.classList.add("loading");
 
-        // floating_loader.style['transition-duration'] = '0s'
-        // floating_loader.style.width = `${clicked_rect.width}px`
-        // floating_loader.style.height = `${clicked_rect.height}px`
-        // floating_loader.style.left = `${clicked_rect.x}px`
-        // floating_loader.style.top = `${clicked_rect.y}px`
+        const clicked_rect = e.currentTarget.getBoundingClientRect();
+
+        floating_loader.style["transition-duration"] = "0s";
+        floating_loader.style.width = `${clicked_rect.width}px`;
+        floating_loader.style.height = `${clicked_rect.height}px`;
+        floating_loader.style.left = `${clicked_rect.x}px`;
+        floating_loader.style.top = `${clicked_rect.y}px`;
 
         // WARN: this is a hack that recalculates dom positioning and updates floating_loader instantly rather than using a propery animation approach
-        let x = floating_loader.offsetLeft
+        let x = floating_loader.offsetLeft;
         // TODO: update instantly but animate from here - maybe use CSS animation? https://stackoverflow.com/questions/49286413/changing-an-html-elements-style-in-javascript-with-its-css-transition-temporari
 
+        floating_loader.style["transition-duration"] = `${trans}s`;
 
-        //floating_loader.style['transition-duration'] = '0.2s'
+        const article_rect = viewed_article.getBoundingClientRect();
 
-        const article_rect = viewed_article.getBoundingClientRect()
+        floating_loader.style.left = `${article_rect.x}px`;
+        floating_loader.style.top = `${article_rect.y}px`;
+        floating_loader.style.height = `${article_rect.height}px`;
+        floating_loader.style.width = `${article_rect.width}px`;
+        floating_loader.classList.add("open");
 
+        viewer_view.style["background-color"] = "rgba(0, 0, 0, 0.6)";
 
-        // floating_loader.style.left = `${article_rect.x}px`
-        // floating_loader.style.top = `${article_rect.y}px`
-        // floating_loader.style.height = `${article_rect.height}px`
-        // floating_loader.style.width = `${article_rect.width}px`
-
-
-
+        const navs = document.getElementsByClassName("viewer-nav");
+        for (const nav of navs) {
+          nav.classList.add("open");
+        }
       };
 
       window.close_viewer = () => {
-        viewer_view.style.display = "none";
-        article_content.innerHTML = "";
+        mock_article_content.style["transition-duration"] = `0s`;
+        mock_article_content.style["background-color"] = `var(--article-bg)`;
 
+        let x = mock_article_content.offsetLeft;
+
+        mock_article_content.style["transition-duration"] = `${trans}s`;
+        mock_article_content.style["background-color"] = `var(--book-bg)`;
+
+        article_content.classList.remove("open");
+        mock_article_content.classList.remove("open");
+        floating_loader.classList.remove("open");
+
+        const book_rect = viewed_book.getBoundingClientRect();
+        floating_loader.style.left = `${book_rect.x}px`;
+        floating_loader.style.top = `${book_rect.y}px`;
+        floating_loader.style.height = `calc-size(${book_rect.height}px, size)`;
+        floating_loader.style.width = `${book_rect.width}px`;
+
+        viewer_view.style["background-color"] = "rgba(0, 0, 0, 0)";
+
+        const navs = document.getElementsByClassName("viewer-nav");
+        for (const nav of navs) {
+          nav.classList.remove("open");
+        }
+
+        setTimeout(() => {
+          viewed_book.style.opacity = 1;
+          floating_loader.style.opacity = 0;
+          setTimeout(() => {
+            viewer_view.style.display = "none";
+            // Reset
+            floating_loader.style.opacity = 1;
+            mock_article_content.style["background-color"] = ``;
+          }, trans * 1000);
+        }, trans * 1000);
       };
 
       /**
@@ -203,9 +241,7 @@
           );
           return;
         }
-
         const file_type = url.split(".").pop();
-        console.log(file_type);
 
         // TODO: headers based on file type
         // TODO: update loaded article register (cache?)
@@ -308,21 +344,32 @@
       ></section>
     </main>
 
+    <template id="article-nav">
+      <nav>
+        <button onclick="close_viewer()">Back</button>
+      </nav>
+    </template>
+
     <main class="screen" id="viewer_view">
-
       <section id="viewed_article">
-		  <nav>
-		    <button onclick="close_viewer()">Back</button>
-		  </nav>
-
-		  <article id="article_content">
-		  </article>
-
-		  <nav>
-		    <button onclick="close_viewer()">Back</button>
-		  </nav>
+        <nav>
+          <button onclick="close_viewer()">Back</button>
+        </nav>
+        <article id="article_content"></article>
+        <nav>
+          <button onclick="close_viewer()">Back</button>
+        </nav>
       </section>
 
+      <section id="floating_loader">
+        <nav class="viewer-nav">
+          <button onclick="close_viewer()">Back</button>
+        </nav>
+        <article id="mock_article_content"></article>
+        <nav class="viewer-nav">
+          <button onclick="close_viewer()">Back</button>
+        </nav>
+      </section>
     </main>
   </body>
 </html>
