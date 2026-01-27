@@ -13,14 +13,36 @@
   overflow-x: auto;
   display: flex;
   flex-direction: row;
+  padding-left: 2em;
+  padding-right: 2em;
+  box-sizing: border-box;
 }
 
+/** Shelf Top **/
 #shelftop {
+  /*
   display: grid;
-  background-color: var(--shelf-shelftop);
+
+  grid-template-columns: 1em 1em 1fr 1em 1em;
+  grid-template-rows: 3em 1em 1em;
+  */
+  height: 5em;
 }
 
-/** A shelf bay holds books */
+
+#shelftop #shelftop-content {
+  /*
+  grid-column: 3/4;
+  grid-row: 1/4;
+  */
+  background-color: var(--shelf-shelftop);
+  height: 5em;
+}
+
+
+
+
+/** A shelf bay holds books in a column */
 .shelf-bay {
   max-height: 100%;
   height: 100%;

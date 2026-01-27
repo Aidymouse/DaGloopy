@@ -138,11 +138,25 @@
           },
         );
 
-        initiate_viewer();
+        initiate_viewer(e);
       };
 
-      window.initiate_viewer = () => {
+      window.initiate_viewer = (e) => {
         viewer_view.style.display = "flex";
+
+        const clicked_rect = e.currentTarget.getBoundingClientRect()
+
+        floating_loader.style.width = `${clicked_rect.width}px`
+        floating_loader.style.height = `${clicked_rect.height}px`
+        floating_loader.style.left = `${clicked_rect.x}px`
+        floating_loader.style.top = `${clicked_rect.y}px`
+
+        // TODO: update instantly but animate from here - maybe use CSS animation? https://stackoverflow.com/questions/49286413/changing-an-html-elements-style-in-javascript-with-its-css-transition-temporari
+
+        floating_loader.style['transition-duration'] = '0.2s'
+
+
+
       };
 
       window.close_viewer = () => {
@@ -221,7 +235,7 @@
     <main class="screen" id="shelf_view">
       <nav id="shelftop">
         <section id="shelftop-content">
-        <button onclick="go_to_desk_view()">To Desk</button>
+          <button onclick="go_to_desk_view()">To Desk</button>
         </section>
       </nav>
 
@@ -268,6 +282,9 @@
     </main>
 
     <main class="screen" id="viewer_view">
+      <section id="floating_loader">
+      </section>
+
       <section id="viewed_article">
 		  <nav>
 		    <button onclick="close_viewer()">Back</button>
@@ -280,7 +297,7 @@
 		    <button onclick="close_viewer()">Back</button>
 		  </nav>
       </section>
-      <footer style="height: 5em"> </footer>
+
     </main>
   </body>
 </html>

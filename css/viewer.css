@@ -33,3 +33,13 @@
   padding-right: 3em;
   line-height: 1.5;
 }
+
+/** Floating Loader **/
+#floating_loader {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  background-color: var(--article-bg);
+
+}
