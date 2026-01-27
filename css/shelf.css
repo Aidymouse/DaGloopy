@@ -35,6 +35,7 @@
 
 /** An article sitting on the shelf has the class book */
 .book {
+  position: relative;
   display: flex;
   flex-direction: row;
   background-color: var(--book-bg);
@@ -42,6 +43,7 @@
   align-items: center;
   transition-duration: 0.2s;
   user-select: none;
+  z-index: 1;
 }
 
 .book:hover {
