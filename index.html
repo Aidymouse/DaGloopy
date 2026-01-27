@@ -134,7 +134,21 @@
         load_article(
           `public/${content}`,
           async (res, processed, text = null) => {
-            article_content.innerHTML = processed;
+
+            setTimeout( () => {
+              article_content.innerHTML = processed;
+              article_content.style.height = "0px"
+              const a = article_content.offsetLeft;
+              article_content.style.height = "100%"
+            }, 1000)
+
+
+            /*const article_rect = viewed_article.getBoundingClientRect()
+
+            floating_loader.style.left = `${article_rect.x}px`
+            floating_loader.style.height = `${article_rect.height}px`
+            floating_loader.style.opacity = "0"
+            */
           },
         );
 
@@ -146,14 +160,26 @@
 
         const clicked_rect = e.currentTarget.getBoundingClientRect()
 
-        floating_loader.style.width = `${clicked_rect.width}px`
-        floating_loader.style.height = `${clicked_rect.height}px`
-        floating_loader.style.left = `${clicked_rect.x}px`
-        floating_loader.style.top = `${clicked_rect.y}px`
+        // floating_loader.style['transition-duration'] = '0s'
+        // floating_loader.style.width = `${clicked_rect.width}px`
+        // floating_loader.style.height = `${clicked_rect.height}px`
+        // floating_loader.style.left = `${clicked_rect.x}px`
+        // floating_loader.style.top = `${clicked_rect.y}px`
 
+        // WARN: this is a hack that recalculates dom positioning and updates floating_loader instantly rather than using a propery animation approach
+        let x = floating_loader.offsetLeft
         // TODO: update instantly but animate from here - maybe use CSS animation? https://stackoverflow.com/questions/49286413/changing-an-html-elements-style-in-javascript-with-its-css-transition-temporari
 
-        floating_loader.style['transition-duration'] = '0.2s'
+
+        //floating_loader.style['transition-duration'] = '0.2s'
+
+        const article_rect = viewed_article.getBoundingClientRect()
+
+
+        // floating_loader.style.left = `${article_rect.x}px`
+        // floating_loader.style.top = `${article_rect.y}px`
+        // floating_loader.style.height = `${article_rect.height}px`
+        // floating_loader.style.width = `${article_rect.width}px`
 
 
 
@@ -162,6 +188,7 @@
       window.close_viewer = () => {
         viewer_view.style.display = "none";
         article_content.innerHTML = "";
+
       };
 
       /**
@@ -282,8 +309,6 @@
     </main>
 
     <main class="screen" id="viewer_view">
-      <section id="floating_loader">
-      </section>
 
       <section id="viewed_article">
 		  <nav>

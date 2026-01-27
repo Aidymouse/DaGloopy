@@ -18,7 +18,7 @@
 
 #viewed_article {
 	display: block;
-	height: auto;
+	/*height: auto;*/
 	/* max-height: none; */
   margin-top: 3em;
   margin-bottom: 3em;
@@ -26,12 +26,16 @@
   max-width: 40%;
   min-width: 40em;
   background-color: var(--article-bg);
+  transition-duration: 0.2s;
 }
 
 #article_content {
   padding-left: 3em;
   padding-right: 3em;
   line-height: 1.5;
+  height: 0%;
+  transition-duration: 0.2s;
+  overflow: hidden;
 }
 
 /** Floating Loader **/
@@ -41,5 +45,6 @@
   left: 0px;
 
   background-color: var(--article-bg);
+  /*background-color: blue;*/
 
 }
