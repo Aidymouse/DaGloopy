@@ -1,6 +1,6 @@
 #viewer_view {
   /*--trans: 0.4s;*/
-  --trans: 0.4s;
+  --trans: 4s;
 
   display: none;
   position: absolute;
@@ -33,6 +33,7 @@
   min-width: 40em;
   background-color: var(--article-bg);
   opacity: 0;
+  margin-bottom: 3em;
 }
 
 #article_content {
