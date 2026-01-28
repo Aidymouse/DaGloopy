@@ -92,3 +92,32 @@
   background-color: blue;
   display: none;
 }
+
+#floating_book {
+  position: absolute;
+  background-color: blue;
+
+  transition-duration: var(--article-bg);
+  z-index: 4;
+  overflow: hidden;
+}
+
+#floating_book #fb_heading_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2em;
+  display: flex;
+  align-items: center;
+}
+
+#floating_book h2 {
+  margin: 0;
+  margin-left: 0.5em;
+  font-weight: normal;
+  font-size: 14pt;
+}
+
+#floating_book_content {
+  transition-duration: var(--trans);
+}

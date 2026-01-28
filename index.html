@@ -24,8 +24,8 @@
        **/
       // Element reference to a book currently being viewed
       globalThis.viewed_book = null;
-      // Transformation timer indicating time taken to animate books flying out
-      globalThis.trans = 4;
+      // Transformation timer indicating time taken to animate books flying out. Matched by a css var
+      globalThis.trans = 0.4;
       // Book currently being dragged around the shelf
       globalThis.dragged_book = null;
 
@@ -64,7 +64,6 @@
     </main>
 
     <!-- THE SHELF -->
-
     <main class="screen" id="shelf_view">
       <nav id="shelftop">
         <section id="shelftop-content">
@@ -83,6 +82,7 @@
             ondragend="book_dragend(event)"
             onpointerup="book_pointerup(event)"
             data-contenturl="content/dagloopyrpg/12 room dungeon blocks.md"
+            data-title="12 Room Dungeon Blocks"
           >
             <h2>12 Room Dungeon Blocks</h2>
           </article>
@@ -94,6 +94,7 @@
             ondragend="book_dragend(event)"
             onpointerup="book_pointerup(event)"
             data-contenturl="content/dagloopyrpg/birthright, mausritter, rules light warfare.md"
+            data-title="Birthright, Mausritter, Rules Light Warfare"
           >
             <h2>Birthright, Mausritter, Rules Light Warfare</h2>
           </article>
@@ -106,12 +107,17 @@
         <div class="shelf-seperator"></div>
         <section class="shelf-bay"></section>
         <div class="shelf-seperator"></div>
+
+        <!-- Used to make the illusion of the book flying back into place -->
       </section>
 
       <section
         id="desk-drop-zone"
         ondragenter="enter_drop_zone(event)"
       ></section>
+
+      <!-- TODO: give this events so the shelf is still responsive -->
+      <section id="floating_book"></section>
     </main>
 
     <template id="article-nav">

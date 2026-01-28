@@ -1,7 +1,4 @@
 #viewer_view {
-  /*--trans: 0.4s;*/
-  --trans: 4s;
-
   display: none;
   position: absolute;
   width: 100%;
@@ -43,6 +40,10 @@
 
   /*transition: background-color height 0.4s;*/
   /*background-color: var(--book-bg);*/
+  transition-duration: var(--trans);
+  &.open {
+    height: calc-size(auto, size);
+  }
 }
 
 #mock_article_content {

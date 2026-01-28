@@ -50,7 +50,7 @@ export const book_pointerup = (e) => {
       floating_loader.style.height = "auto";
       article_content.classList.add("open");
       mock_article_content.classList.add("open");
-    }, 0);
+    }, 1000);
   });
 
   initiate_viewer(e);

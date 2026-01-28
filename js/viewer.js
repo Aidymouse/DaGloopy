@@ -5,11 +5,11 @@ export const initiate_viewer = (e) => {
 
   const clicked_rect = e.currentTarget.getBoundingClientRect();
 
-  floating_loader.style["transition-duration"] = "0s";
-  floating_loader.style.width = `${clicked_rect.width}px`;
-  floating_loader.style.height = `${clicked_rect.height}px`;
-  floating_loader.style.left = `${clicked_rect.x}px`;
-  floating_loader.style.top = `${clicked_rect.y}px`;
+  set_style(floating_loader, {
+    ["transition-duration"]: "0s",
+  });
+
+  match_size(floating_loader, e.currentTarget);
 
   // WARN: this is a hack that recalculates dom positioning and updates floating_loader instantly rather than using a propery animation approach
   let x = floating_loader.offsetLeft;
@@ -19,10 +19,7 @@ export const initiate_viewer = (e) => {
 
   const article_rect = viewed_article.getBoundingClientRect();
 
-  floating_loader.style.left = `${article_rect.x}px`;
-  floating_loader.style.top = `${article_rect.y}px`;
-  floating_loader.style.height = `${article_rect.height}px`;
-  floating_loader.style.width = `${article_rect.width}px`;
+  match_size(floating_loader, viewed_article);
   floating_loader.classList.add("open");
 
   viewer_view.style["background-color"] = "rgba(0, 0, 0, 0.6)";
@@ -41,58 +38,68 @@ export const initiate_viewer = (e) => {
 };
 
 export const close_viewer = () => {
-  // What we should actually do it, clone the open article onto the shelf layer, and let if fly back that way.
+  // Constructs the floating book div on the shelf layer and lets it fly back into the shelf
 
   viewer_view.scrollTo({ top: 0, behavior: "smooth" });
 
-  // Get the mock article to be the same size as the main
-  floating_loader.style["transition-duration"] = "0";
-  const article_rect = viewed_article.getBoundingClientRect();
-  floating_loader.style.top = `${article_rect.y}px`;
-  floating_loader.style.left = `${article_rect.x}px`;
-  floating_loader.style.width = article_rect.width;
-  floating_loader.style.height = article_rect.height;
-  floating_loader.style.display = "block";
+  // Set up floating book in initial pos
+  floating_book.style["transition-duration"] = "0s";
+  match_size(floating_book, viewed_article);
+  floating_book.innerHTML = `<div id="floating_book_content">${viewed_article.innerHTML}</div>`;
+  floating_book.innerHTML += `
+		<section id="fb_heading_container">
+			<h2>${viewed_book.getAttribute("data-title")}</h2>
+		</heading>
+		`;
+  // TODO: query into floating book and change article content so it's fixed width and doesn't reflow on close
+  set_style(floating_book, {
+    display: "",
+    opacity: "1",
+    ["background-color"]: "var(--article-bg)",
+  });
 
-  let cx = floating_loader.offsetLeft;
+  // Reflow to apply style
+  let x = floating_book.offsetLeft;
 
-  floating_loader.style["transition-duration"] = `${trans}s`;
-
-  mock_article_content.style["transition-duration"] = `0s`;
-  mock_article_content.style["background-color"] = `var(--article-bg)`;
-  viewed_article.style.opacity = "0";
-
-  let x = mock_article_content.offsetLeft;
-
-  mock_article_content.style["transition-duration"] = `${trans}s`;
-  // TODO: when you hit back too fast this is unconvincing. But probably only noticeable at slow speeds
-  mock_article_content.style["background-color"] = `var(--book-bg)`;
-
-  article_content.classList.remove("open");
-  mock_article_content.classList.remove("open");
-  floating_loader.classList.remove("open");
-
-  const book_rect = viewed_book.getBoundingClientRect();
-  floating_loader.style.left = `${book_rect.x}px`;
-  floating_loader.style.top = `${book_rect.y}px`;
-  floating_loader.style.height = `calc-size(${book_rect.height}px, size)`;
-  floating_loader.style.width = `${book_rect.width}px`;
-
+  // Turn off the viewer
   viewer_view.style["background-color"] = "rgba(0, 0, 0, 0)";
+  viewer_view.style.display = "none";
 
-  const navs = document.getElementsByClassName("viewer-nav");
-  for (const nav of navs) {
-    nav.classList.remove("open");
-  }
+  // Reset relevant viewer state
+  //article_content.classList.remove("open");
+  mock_article_content.classList.remove("open");
+  floating_loader.style.height = "";
 
+  // Set floating book to new pos
+  set_style(floating_book, {
+    ["transition-duration"]: `${globalThis.trans}s`,
+    ["background-color"]: "var(--book-bg)",
+  });
+  match_size(floating_book, globalThis.viewed_book);
+
+  floating_book_content.style.opacity = "0";
+
+  // When the anim is done, turn the book back on, turn off the floating book
   setTimeout(() => {
-    viewed_book.style.opacity = 1;
-    floating_loader.style.opacity = 0;
-    setTimeout(() => {
-      viewer_view.style.display = "none";
-      // Reset
-      floating_loader.style.opacity = 1;
-      mock_article_content.style["background-color"] = ``;
-    }, globalThis.trans * 1000);
+    globalThis.viewed_book.style.opacity = "1";
+    floating_book.style.display = "none";
   }, globalThis.trans * 1000);
+};
+
+/** Sets elem1's top, left, width and height to the x, y, width, height of elem2
+ * @param elem1 - Element of absolute position
+ * @param elem2 - Element to match size of
+ */
+export const match_size = (elem1, elem2) => {
+  const rect = elem2.getBoundingClientRect();
+  elem1.style.left = `${rect.x}px`;
+  elem1.style.top = `${rect.y}px`;
+  elem1.style.width = `${rect.width}px`;
+  elem1.style.height = `${rect.height}px`;
+};
+
+export const set_style = (elem, style) => {
+  for (const [styleKey, styleVal] of Object.entries(style)) {
+    elem.style[styleKey] = styleVal;
+  }
 };
