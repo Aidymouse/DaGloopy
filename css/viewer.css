@@ -41,7 +41,7 @@
   line-height: 1.5;
 
   /*transition: background-color height 0.4s;*/
-  background-color: var(--book-bg);
+  /*background-color: var(--book-bg);*/
 }
 
 #mock_article_content {
