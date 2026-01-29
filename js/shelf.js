@@ -41,19 +41,24 @@ export const book_pointerup = (e) => {
   e.currentTarget.style.opacity = "0";
   globalThis.viewed_book = e.currentTarget;
 
+  const load_start_contenturl = content;
   load_article(`public/${content}`, async (res, processed, text = null) => {
     // Simulate 1 second load time with setTimeout
     setTimeout(() => {
+      // If there's a bad load time or something, and someone opens a book, closes it, then opens a new one, this if prevents the previosuly requested article from being put into the html
+      if (
+        globalThis.viewed_book?.getAttribute("data-contenturl") !==
+        load_start_contenturl
+      ) {
+        return;
+      }
+
       viewed_article_content.innerHTML = processed;
       mock_article_content.innerHTML = processed;
 
       viewed_article_content.classList.add("open");
       mock_article_content.classList.add("open");
-      setTimeout(() => {
-        viewed_article.style.opacity = "1";
-        floating_loader.style.display = "none";
-      }, globalThis.trans * 1000);
-    }, 0);
+    }, 3000);
   });
 
   initiate_viewer(e);

@@ -20,7 +20,6 @@
 #viewed_article {
   position: absolute;
   display: block;
-  /*height: auto;*/
   /* max-height: none; */
   height: auto;
   transition-duration: var(--trans);
@@ -32,14 +31,15 @@
   min-width: 40em;
   background-color: var(--article-bg);
   /*opacity: 0;*/
-  margin-bottom: 3em;
   opacity: 0;
 }
 
 #viewed_article_content {
   /*transition: background-color height 0.4s;*/
   /*background-color: var(--book-bg);*/
-  /*transition-duration: var(--trans);*/
+  transition-duration: var(--trans);
+  height: 0;
+  overflow: hidden;
 
   &.open {
     height: calc-size(auto, size);
@@ -76,6 +76,8 @@
   &.open {
     background-color: var(--article-bg);
   }
+
+  z-index: 36;
 }
 
 #floating_loader * {

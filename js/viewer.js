@@ -1,3 +1,4 @@
+// TODO: copy the book elem into the floating loader and have it fade out
 export const initiate_viewer = (e) => {
   // Show the viewer
   viewer_view.style.display = "flex";
@@ -9,6 +10,8 @@ export const initiate_viewer = (e) => {
   });
   match_size(floating_loader, e.currentTarget);
   floating_loader.style.display = "block"; // Reset if been closed before
+
+  viewed_article_content.innerHTML = "";
 
   // WARN: this is a hack that recalculates dom positioning and updates floating_loader instantly rather than using a propery animation approach
   let x = floating_loader.offsetLeft;
@@ -44,6 +47,9 @@ export const initiate_viewer = (e) => {
 export const close_viewer = () => {
   // Constructs the floating book div on the shelf layer and lets it fly back into the shelf
 
+  globalThis.book_flying_back = globalThis.viewed_book;
+  globalThis.viewed_book = null;
+
   viewer_view.scrollTo({ top: 0, behavior: "smooth" });
 
   // Set up floating book in initial pos
@@ -52,7 +58,7 @@ export const close_viewer = () => {
   floating_book.innerHTML = `<div id="floating_book_content">${viewed_article.innerHTML}</div>`;
   floating_book.innerHTML += `
 		<section id="fb_heading_container">
-			<h2>${viewed_book.getAttribute("data-title")}</h2>
+			<h2>${globalThis.book_flying_back.getAttribute("data-title")}</h2>
 		</heading>
 		`;
 
@@ -71,6 +77,8 @@ export const close_viewer = () => {
   viewer_view.style["background-color"] = "rgba(0, 0, 0, 0)";
   viewed_article.style["transition-duration"] = "0s";
   viewed_article.style.opacity = "0";
+  // Reset content so subsequent books don't flash with previous book content first
+  viewed_article_content.innerHTML = "";
   let x2 = viewed_article.offsetLeft;
   viewed_article.style["transition-duration"] = `${globalThis.trans}`;
 
@@ -79,7 +87,7 @@ export const close_viewer = () => {
   }, 0.2 * 1000);
 
   // Reset relevant viewer state
-  //article_content.classList.remove("open");
+  viewed_article_content.classList.remove("open");
   mock_article_content.classList.remove("open");
   floating_loader.style.height = "";
 
@@ -88,16 +96,14 @@ export const close_viewer = () => {
     ["transition-duration"]: `${globalThis.trans}s`,
     ["background-color"]: "var(--book-bg)",
   });
-  match_size(floating_book, globalThis.viewed_book);
+  match_size(floating_book, globalThis.book_flying_back);
 
   floating_book_content.style.opacity = "0";
 
   // When the anim is done, turn the book back on, turn off the floating book
   setTimeout(() => {
-    globalThis.viewed_book.style.opacity = "1";
+    globalThis.book_flying_back.style.opacity = "1";
     floating_book.style.display = "none";
-    // Reset content so subsequent books don't flash with previous book content first
-    viewed_article_content.innerHTML = "";
   }, globalThis.trans * 1000);
 };
 
