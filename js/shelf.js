@@ -44,13 +44,16 @@ export const book_pointerup = (e) => {
   load_article(`public/${content}`, async (res, processed, text = null) => {
     // Simulate 1 second load time with setTimeout
     setTimeout(() => {
-      article_content.innerHTML = processed;
+      viewed_article_content.innerHTML = processed;
       mock_article_content.innerHTML = processed;
 
-      floating_loader.style.height = "auto";
-      article_content.classList.add("open");
+      viewed_article_content.classList.add("open");
       mock_article_content.classList.add("open");
-    }, 1000);
+      setTimeout(() => {
+        viewed_article.style.opacity = "1";
+        floating_loader.style.display = "none";
+      }, globalThis.trans * 1000);
+    }, 0);
   });
 
   initiate_viewer(e);

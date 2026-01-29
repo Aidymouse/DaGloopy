@@ -98,7 +98,7 @@
   background-color: blue;
 
   transition-duration: var(--article-bg);
-  z-index: 4;
+  z-index: 40;
   overflow: hidden;
 }
 

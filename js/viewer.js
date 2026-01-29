@@ -1,15 +1,14 @@
 export const initiate_viewer = (e) => {
+  // Show the viewer
   viewer_view.style.display = "flex";
 
-  mock_article_content.classList.add("loading");
-
+  // Set the floating loader to the clicked books pos
   const clicked_rect = e.currentTarget.getBoundingClientRect();
-
   set_style(floating_loader, {
     ["transition-duration"]: "0s",
   });
-
   match_size(floating_loader, e.currentTarget);
+  floating_loader.style.display = "block"; // Reset if been closed before
 
   // WARN: this is a hack that recalculates dom positioning and updates floating_loader instantly rather than using a propery animation approach
   let x = floating_loader.offsetLeft;
@@ -17,9 +16,9 @@ export const initiate_viewer = (e) => {
 
   floating_loader.style["transition-duration"] = `${globalThis.trans}s`;
 
-  const article_rect = viewed_article.getBoundingClientRect();
-
+  // Update floatng loaders pos to the article (which may or may not be loaded, but the viewed article is now in place
   match_size(floating_loader, viewed_article);
+  floating_loader.style.height = "auto"; // Override height because fixed height of viewed_article makes background color fail to expand
   floating_loader.classList.add("open");
 
   viewer_view.style["background-color"] = "rgba(0, 0, 0, 0.6)";
@@ -31,9 +30,14 @@ export const initiate_viewer = (e) => {
 
   // TODO: cancel this if we click close too quick
   setTimeout(() => {
+    viewed_article.style["transition-duration"] = "0s";
     viewed_article.style.opacity = "1";
+    let x2 = viewed_article.offsetLeft;
+    viewed_article.style["transition-duration"] = `${globalThis.trans}s`;
+
     //floating_loader.style.opacity = "0";
     floating_loader.style.display = "none";
+    floating_loader.classList.remove("open");
   }, globalThis.trans * 1000);
 };
 
@@ -51,6 +55,8 @@ export const close_viewer = () => {
 			<h2>${viewed_book.getAttribute("data-title")}</h2>
 		</heading>
 		`;
+
+  floating_book.querySelector("#viewed_article_content").id = "";
   // TODO: query into floating book and change article content so it's fixed width and doesn't reflow on close
   set_style(floating_book, {
     display: "",
@@ -63,7 +69,14 @@ export const close_viewer = () => {
 
   // Turn off the viewer
   viewer_view.style["background-color"] = "rgba(0, 0, 0, 0)";
-  viewer_view.style.display = "none";
+  viewed_article.style["transition-duration"] = "0s";
+  viewed_article.style.opacity = "0";
+  let x2 = viewed_article.offsetLeft;
+  viewed_article.style["transition-duration"] = `${globalThis.trans}`;
+
+  setTimeout(() => {
+    viewer_view.style.display = "none";
+  }, 0.2 * 1000);
 
   // Reset relevant viewer state
   //article_content.classList.remove("open");
@@ -83,6 +96,8 @@ export const close_viewer = () => {
   setTimeout(() => {
     globalThis.viewed_book.style.opacity = "1";
     floating_book.style.display = "none";
+    // Reset content so subsequent books don't flash with previous book content first
+    viewed_article_content.innerHTML = "";
   }, globalThis.trans * 1000);
 };
 
