@@ -24,7 +24,7 @@ export const initiate_viewer = (e) => {
   floating_loader.style.height = "auto"; // Override height because fixed height of viewed_article makes background color fail to expand
   floating_loader.classList.add("open");
 
-  viewer_view.style["background-color"] = "rgba(0, 0, 0, 0.6)";
+  viewer_view.style["background-color"] = "rgba(0, 0, 0, 0.8)";
 
   const navs = document.getElementsByClassName("viewer-nav");
   for (const nav of navs) {
