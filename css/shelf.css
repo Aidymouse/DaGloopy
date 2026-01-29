@@ -5,12 +5,12 @@
   background-color: var(--desk-bg);
   display: grid;
   grid-template-rows: 5em 1fr;
+  overflow: scroll;
 }
 
 #shelf {
   width: 100%;
-  height: 100%;
-  overflow-x: auto;
+  height: auto;
   display: flex;
   flex-direction: row;
   padding-left: 2em;
@@ -26,7 +26,10 @@
   grid-template-columns: 1em 1em 1fr 1em 1em;
   grid-template-rows: 3em 1em 1em;
   */
+  position: sticky;
+  top: 0;
   height: 5em;
+  z-index: 8;
 }
 
 #shelftop #shelftop-content {
@@ -46,9 +49,10 @@
 }
 
 .shelf-seperator {
-  background-color: var(--shelf-shelftop);
   height: 100%;
+  background-color: var(--shelf-shelftop);
   width: 1em;
+  z-index: 0;
 }
 
 /** An article sitting on the shelf has the class book */
@@ -62,6 +66,9 @@
   transition: margin 0.2s;
   user-select: none;
   z-index: 1;
+  border-bottom: solid 1px var(--shelf-shelftop);
+  border-left: solid 1px var(--shelf-shelftop);
+  width: 100%;
 }
 
 .book:hover {
@@ -69,11 +76,16 @@
   margin-right: -1em;
 }
 
-.book h2 {
+.book h2,
+#floating_book h2 {
+  white-space: nowrap;
   margin: 0;
   margin-left: 0.5em;
   font-weight: normal;
-  font-size: 14pt;
+  font-size: 13pt;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .book summary {
@@ -109,13 +121,6 @@
   height: 2em;
   display: flex;
   align-items: center;
-}
-
-#floating_book h2 {
-  margin: 0;
-  margin-left: 0.5em;
-  font-weight: normal;
-  font-size: 14pt;
 }
 
 #floating_book_content {
