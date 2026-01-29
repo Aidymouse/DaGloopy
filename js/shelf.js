@@ -58,7 +58,7 @@ export const book_pointerup = (e) => {
 
       viewed_article_content.classList.add("open");
       mock_article_content.classList.add("open");
-    }, 3000);
+    }, 0); // <-- this is a load time simulator
   });
 
   initiate_viewer(e);
