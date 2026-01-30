@@ -1,4 +1,4 @@
-#shelf_view {
+.shelf_view {
   position: absolute;
   left: 0%;
   transition-duration: 0.2s;
@@ -8,7 +8,7 @@
   overflow: scroll;
 }
 
-#shelf {
+.shelf {
   width: 100%;
   height: auto;
   display: flex;
@@ -19,7 +19,7 @@
 }
 
 /** Shelf Top **/
-#shelftop {
+.shelftop {
   /*
   display: grid;
 
@@ -32,7 +32,7 @@
   z-index: 8;
 }
 
-#shelftop #shelftop-content {
+.shelftop .shelftop-content {
   /*
   grid-column: 3/4;
   grid-row: 1/4;
@@ -61,7 +61,7 @@
   display: flex;
   flex-direction: row;
   background-color: var(--book-bg);
-  height: 2em;
+  height: 2.2em;
   align-items: center;
   transition: margin 0.2s;
   user-select: none;
@@ -77,7 +77,7 @@
 }
 
 .book h2,
-#floating_book h2 {
+.floating_book h2 {
   white-space: nowrap;
   margin: 0;
   margin-left: 0.5em;
@@ -86,6 +86,17 @@
   text-overflow: ellipsis;
   max-width: 100%;
   overflow: hidden;
+  flex-grow: 1;
+}
+
+.book h3,
+.floating_book h3 {
+  white-space: nowrap;
+  justify-self: flex-end;
+  margin-right: 0.5em;
+  font-weight: normal;
+  font-size: 0.9em;
+  opacity: 0.5;
 }
 
 .book summary {
@@ -105,7 +116,7 @@
   display: none;
 }
 
-#floating_book {
+.floating_book {
   position: absolute;
   background-color: blue;
 
@@ -114,7 +125,7 @@
   overflow: hidden;
 }
 
-#floating_book #fb_heading_container {
+.floating_book .fb_heading_container {
   position: absolute;
   top: 0;
   left: 0;
@@ -123,6 +134,6 @@
   align-items: center;
 }
 
-#floating_book_content {
+.floating_book_content {
   transition-duration: var(--trans);
 }

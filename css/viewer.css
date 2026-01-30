@@ -1,4 +1,4 @@
-#viewer_view {
+.viewer_view {
   display: none;
   position: absolute;
   width: 100%;
@@ -17,7 +17,7 @@
   z-index: 20;
 }
 
-#viewed_article {
+.viewed_article {
   position: absolute;
   display: block;
   /* max-height: none; */
@@ -34,7 +34,7 @@
   opacity: 0;
 }
 
-#viewed_article_content {
+.viewed_article_content {
   /*transition: background-color height 0.4s;*/
   /*background-color: var(--book-bg);*/
   transition-duration: var(--trans);
@@ -53,7 +53,7 @@
   height: 0;
 }
 
-#mock_article_content {
+.mock_article_content {
   overflow: hidden;
 
   /*transition: background-color height 0.4s;*/
@@ -65,7 +65,7 @@
 }
 
 /** Floating Loader **/
-#floating_loader {
+.floating_loader {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -80,7 +80,7 @@
   z-index: 36;
 }
 
-#floating_loader * {
+.floating_loader * {
   /*opacity: 0;*/
 }
 

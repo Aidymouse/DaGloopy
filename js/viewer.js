@@ -55,9 +55,9 @@ export const close_viewer = () => {
   // Set up floating book in initial pos
   floating_book.style["transition-duration"] = "0s";
   match_size(floating_book, viewed_article);
-  floating_book.innerHTML = `<div id="floating_book_content">${viewed_article.innerHTML}</div>`;
+  floating_book.innerHTML = `<div id="floating_book_content" class="floating_book_content">${viewed_article.innerHTML}</div>`;
   floating_book.innerHTML += `
-		<section id="fb_heading_container">
+		<section id="fb_heading_container" class="fb_heading_container">
 			<h2>${globalThis.book_flying_back.getAttribute("data-title")}</h2>
 		</heading>
 		`;
