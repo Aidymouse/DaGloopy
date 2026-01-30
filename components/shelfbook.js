@@ -1,8 +1,13 @@
 const series_color_map = {
   "ruby crown": "#a12323",
   "royan empire": "#689923",
-  "the royan empire": "#689923",
+  "riddle of steel": "orange",
 };
+// Color map aliases
+series_color_map["ruby"] = series_color_map["ruby crown"];
+series_color_map["royan"] = series_color_map["royan empire"];
+series_color_map["the royan"] = series_color_map["royan empire"];
+series_color_map["the royan empire"] = series_color_map["royan empire"];
 
 export class ShelfBook extends HTMLElement {
   static observed_attributes = ["title", "date", "contenturl", "series"];

@@ -8,16 +8,20 @@ const tag_re = /^(.+?):(.*)/;
  * @param {article} article
  */
 
-const series_color_map = {
-  "ruby crown": "#ff4000",
-  "royan empire": "#009933",
-  "the royan empire": "#009933",
-};
-
 export const parse_md = async (filepath, article) => {
   const content = await fs.readFile(filepath, { encoding: "utf8" });
 
   let series = null;
+
+  let series_name = article.title.split(" ")[0].toLowerCase();
+  if (series_name === "the") {
+    series_name += " " + article.title.split(" ")[1].toLowerCase();
+  }
+
+  // Overrideen by tag later, if present
+  article.series = series_name;
+
+  console.log(article.series);
 
   // Parse md tags to find date
   // TODO: tags
