@@ -20,6 +20,9 @@
       window.book_pointerup = book_pointerup;
       window.close_viewer = close_viewer;
 
+      import { ShelfBook } from "./components/shelfbook.js";
+      customElements.define("shelf-book", ShelfBook);
+
       /**
        * GLOBAL STATE
        **/
@@ -78,12 +81,14 @@
 
         <section id="shelf-container" class="shelf-container">
           <section id="shelf" class="shelf">
-            <section class="shelf-header"><h1>RPG Tools</h1></section>
+            <section class="shelf-header-container">
+              <section class="shelf-header"><h1>RPG Tools</h1></section>
+            </section>
             <a href="https://hexfriend.net">
-              <article class="book">
-                <h2>Hexfriend</h2>
-                <h3>The Friendly Online Hexmapper</h3>
-              </article>
+              <shelf-book
+                title="Hexfriend"
+                date="The Friendly Online Hexmapper"
+              ></shelf-book>
             </a>
             <a href="https://aidymouse.github.io/map-numberer/">
               <article class="book">
@@ -95,1296 +100,547 @@
                 <h2>Book Arranger</h2>
               </article>
             </a>
-            <section class="shelf-header"><h1>Da Gloopy RPG</h1></section>
+            <section class="shelf-header-container">
+              <section class="shelf-header"><h1>Da Gloopy RPG</h1></section>
+            </section>
             <!-- SHELF: dagloopyrpg -->
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Using Clocks for Poisons and Diseases.md"
-              data-title="Using Clocks for Poisons and Diseases"
-              data-date="Sun Apr 16 2023 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Using Clocks for Poisons and Diseases</h2>
-              <div class="date-container">
-                <h3>16 Apr 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/The hidden stage of prepping a hexcrawl.md"
-              data-title="The hidden stage of prepping a hexcrawl"
-              data-date="Mon Mar 27 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>The hidden stage of prepping a hexcrawl</h2>
-              <div class="date-container">
-                <h3>27 Mar 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Exploration as a sum of systems.md"
-              data-title="Exploration as a sum of systems"
-              data-date="Wed Sep 07 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Exploration as a sum of systems</h2>
-              <div class="date-container">
-                <h3>7 Sep 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Random tables, deep game worlds.md"
-              data-title="Random tables, deep game worlds"
-              data-date="Wed Sep 07 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Random tables, deep game worlds</h2>
-              <div class="date-container">
-                <h3>7 Sep 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/The single worst gloopy article I've ever read.md"
-              data-title="The single worst gloopy article I've ever read"
-              data-date="Wed Sep 07 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>The single worst gloopy article I've ever read</h2>
-              <div class="date-container">
-                <h3>7 Sep 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/A worldwide RPG.md"
-              data-title="A worldwide RPG"
-              data-date="Sat Jul 23 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>A worldwide RPG</h2>
-              <div class="date-container">
-                <h3>23 Jul 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/hexfriend.md"
-              data-title="hexfriend"
-              data-date="Sat Jul 23 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>hexfriend</h2>
-              <div class="date-container">
-                <h3>23 Jul 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/the single worst gloopy.md"
-              data-title="the single worst gloopy"
-              data-date="Thu May 19 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>the single worst gloopy</h2>
-              <div class="date-container">
-                <h3>19 May 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/why i hate 5e aka the tragedy of 5th edition.md"
-              data-title="why i hate 5e aka the tragedy of 5th edition"
-              data-date="Tue Jan 04 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>why i hate 5e aka the tragedy of 5th edition</h2>
-              <div class="date-container">
-                <h3>4 Jan 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Political Complexity via Central Tension Generator.md"
-              data-title="Political Complexity via Central Tension Generator"
-              data-date="Mon Dec 06 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Political Complexity via Central Tension Generator</h2>
-              <div class="date-container">
-                <h3>6 Dec 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Golems from Dungeon Meshi.md"
-              data-title="Golems from Dungeon Meshi"
-              data-date="Sun Dec 05 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Golems from Dungeon Meshi</h2>
-              <div class="date-container">
-                <h3>5 Dec 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Da Gloopy RPG Diary.md"
-              data-title="Da Gloopy RPG Diary"
-              data-date="Tue Nov 30 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Da Gloopy RPG Diary</h2>
-              <div class="date-container">
-                <h3>30 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Familiar summoning spells for Mausritter.md"
-              data-title="Familiar summoning spells for Mausritter"
-              data-date="Tue Nov 30 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Familiar summoning spells for Mausritter</h2>
-              <div class="date-container">
-                <h3>30 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Mausritter Style Domain Level Play.md"
-              data-title="Mausritter Style Domain Level Play"
-              data-date="Tue Nov 16 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Mausritter Style Domain Level Play</h2>
-              <div class="date-container">
-                <h3>16 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/birthright, mausritter, rules light warfare.md"
-              data-title="birthright, mausritter, rules light warfare"
-              data-date="Sat Nov 13 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>birthright, mausritter, rules light warfare</h2>
-              <div class="date-container">
-                <h3>13 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/putting 5th edition into 6 levels.md"
-              data-title="putting 5th edition into 6 levels"
-              data-date="Fri Nov 05 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>putting 5th edition into 6 levels</h2>
-              <div class="date-container">
-                <h3>5 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/critical role doors illustrate everything wrong with rpgs in the entire world.md"
-              data-title="critical role doors illustrate everything wrong with rpgs in the entire world"
-              data-date="Thu Nov 04 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>
-                critical role doors illustrate everything wrong with rpgs in the
-                entire world
-              </h2>
-              <div class="date-container">
-                <h3>4 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/12 room dungeon blocks.md"
-              data-title="12 room dungeon blocks"
-              data-date=""
-            >
-              <h2>12 room dungeon blocks</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Blog Posts I like.md"
-              data-title="Blog Posts I like"
-              data-date=""
-            >
-              <h2>Blog Posts I like</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/How Zero Prep Games Work.md"
-              data-title="How Zero Prep Games Work"
-              data-date=""
-            >
-              <h2>How Zero Prep Games Work</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Musings on War.md"
-              data-title="Musings on War"
-              data-date=""
-            >
-              <h2>Musings on War</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/One roll varied treasure hoard.md"
-              data-title="One roll varied treasure hoard"
-              data-date=""
-            >
-              <h2>One roll varied treasure hoard</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/Quick and Dirty Warfare (ripping off ACKs).md"
-              data-title="Quick and Dirty Warfare (ripping off ACKs)"
-              data-date=""
-            >
-              <h2>Quick and Dirty Warfare (ripping off ACKs)</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/betwixt law and chaos I.md"
-              data-title="betwixt law and chaos I"
-              data-date=""
-            >
-              <h2>betwixt law and chaos I</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/korianis hex fill procedure.md"
-              data-title="korianis hex fill procedure"
-              data-date=""
-            >
-              <h2>korianis hex fill procedure</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpg/the kind of games I run.md"
-              data-title="the kind of games I run"
-              data-date=""
-            >
-              <h2>the kind of games I run</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Using Clocks for Poisons and Diseases.md"
+              title="Using Clocks for Poisons and Diseases"
+              date="16 Apr 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/The hidden stage of prepping a hexcrawl.md"
+              title="The hidden stage of prepping a hexcrawl"
+              date="27 Mar 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Exploration as a sum of systems.md"
+              title="Exploration as a sum of systems"
+              date="7 Sep 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Random tables, deep game worlds.md"
+              title="Random tables, deep game worlds"
+              date="7 Sep 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/The single worst gloopy article I've ever read.md"
+              title="The single worst gloopy article I've ever read"
+              date="7 Sep 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/A worldwide RPG.md"
+              title="A worldwide RPG"
+              date="23 Jul 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/hexfriend.md"
+              title="hexfriend"
+              date="23 Jul 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/the single worst gloopy.md"
+              title="the single worst gloopy"
+              date="19 May 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/why i hate 5e aka the tragedy of 5th edition.md"
+              title="why i hate 5e aka the tragedy of 5th edition"
+              date="4 Jan 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Political Complexity via Central Tension Generator.md"
+              title="Political Complexity via Central Tension Generator"
+              date="6 Dec 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Golems from Dungeon Meshi.md"
+              title="Golems from Dungeon Meshi"
+              date="5 Dec 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Da Gloopy RPG Diary.md"
+              title="Da Gloopy RPG Diary"
+              date="30 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Familiar summoning spells for Mausritter.md"
+              title="Familiar summoning spells for Mausritter"
+              date="30 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Mausritter Style Domain Level Play.md"
+              title="Mausritter Style Domain Level Play"
+              date="16 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/birthright, mausritter, rules light warfare.md"
+              title="birthright, mausritter, rules light warfare"
+              date="13 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/putting 5th edition into 6 levels.md"
+              title="putting 5th edition into 6 levels"
+              date="5 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/critical role doors illustrate everything wrong with rpgs in the entire world.md"
+              title="critical role doors illustrate everything wrong with rpgs in the entire world"
+              date="4 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/12 room dungeon blocks.md"
+              title="12 room dungeon blocks"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Blog Posts I like.md"
+              title="Blog Posts I like"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/How Zero Prep Games Work.md"
+              title="How Zero Prep Games Work"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Musings on War.md"
+              title="Musings on War"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/One roll varied treasure hoard.md"
+              title="One roll varied treasure hoard"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/Quick and Dirty Warfare (ripping off ACKs).md"
+              title="Quick and Dirty Warfare (ripping off ACKs)"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/betwixt law and chaos I.md"
+              title="betwixt law and chaos I"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/korianis hex fill procedure.md"
+              title="korianis hex fill procedure"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpg/the kind of games I run.md"
+              title="the kind of games I run"
+              date=""
+            ></shelf-book>
             <!-- STOP SHELF: dagloopyrpg -->
-            <section class="shelf-header"><h1>Da Gloopy RPG Diary</h1></section>
+            <section class="shelf-header-container">
+              <section class="shelf-header">
+                <h1>Da Gloopy RPG Diary</h1>
+              </section>
+            </section>
             <!-- SHELF: dagloopyrpgdiary -->
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire X.md"
-              data-title="The Royan Empire X"
-              data-date="Thu May 15 2025 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>The Royan Empire X</h2>
-              <div class="date-container">
-                <h3>15 May 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire IX.md"
-              data-title="The Royan Empire IX"
-              data-date="Thu May 01 2025 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>The Royan Empire IX</h2>
-              <div class="date-container">
-                <h3>1 May 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire VII.md"
-              data-title="The Royan Empire VII"
-              data-date="Thu Apr 17 2025 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>The Royan Empire VII</h2>
-              <div class="date-container">
-                <h3>17 Apr 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire VI.md"
-              data-title="The Royan Empire VI"
-              data-date="Thu Apr 10 2025 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>The Royan Empire VI</h2>
-              <div class="date-container">
-                <h3>10 Apr 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire - The Waking of Kurumbushai.md"
-              data-title="The Royan Empire - The Waking of Kurumbushai"
-              data-date="Tue Apr 08 2025 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>The Royan Empire - The Waking of Kurumbushai</h2>
-              <span class="book-strip" style="background-color: #009933"></span>
-
-              <div class="date-container">
-                <h3>8 Apr 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire - Punarutthaan for Cholco.md"
-              data-title="The Royan Empire - Punarutthaan for Cholco"
-              data-date="Sun Apr 06 2025 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>The Royan Empire - Punarutthaan for Cholco</h2>
-              <span class="book-strip" style="background-color: #009933"></span>
-
-              <div class="date-container">
-                <h3>6 Apr 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire V.md"
-              data-title="The Royan Empire V"
-              data-date="Thu Apr 03 2025 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>The Royan Empire V</h2>
-              <div class="date-container">
-                <h3>3 Apr 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire IV.md"
-              data-title="The Royan Empire IV"
-              data-date="Thu Mar 27 2025 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>The Royan Empire IV</h2>
-              <div class="date-container">
-                <h3>27 Mar 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire III.md"
-              data-title="The Royan Empire III"
-              data-date="Thu Mar 20 2025 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>The Royan Empire III</h2>
-              <div class="date-container">
-                <h3>20 Mar 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire II.md"
-              data-title="The Royan Empire II"
-              data-date="Thu Mar 13 2025 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>The Royan Empire II</h2>
-              <div class="date-container">
-                <h3>13 Mar 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire I.md"
-              data-title="The Royan Empire I"
-              data-date="Thu Mar 06 2025 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>The Royan Empire I</h2>
-              <div class="date-container">
-                <h3>6 Mar 2025</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire 0.md"
-              data-title="The Royan Empire 0"
-              data-date=""
-            >
-              <h2>The Royan Empire 0</h2>
-              <span class="book-strip" style="background-color: #009933"></span>
-
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/The Royan Empire VIII.md"
-              data-title="The Royan Empire VIII"
-              data-date=""
-            >
-              <h2>The Royan Empire VIII</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLIX.md"
-              data-title="Ruby Crown XLIX"
-              data-date="Sun Jul 28 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLIX</h2>
-              <div class="date-container">
-                <h3>28 Jul 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLVIII.md"
-              data-title="Ruby Crown XLVIII"
-              data-date="Sun Jul 21 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLVIII</h2>
-              <div class="date-container">
-                <h3>21 Jul 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLVII.md"
-              data-title="Ruby Crown XLVII"
-              data-date="Sun Jul 07 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLVII</h2>
-              <div class="date-container">
-                <h3>7 Jul 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLVI.md"
-              data-title="Ruby Crown XLVI"
-              data-date="Sun Jun 30 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLVI</h2>
-              <div class="date-container">
-                <h3>30 Jun 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLV.md"
-              data-title="Ruby Crown XLV"
-              data-date="Sun Jun 23 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLV</h2>
-              <div class="date-container">
-                <h3>23 Jun 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLIV.md"
-              data-title="Ruby Crown XLIV"
-              data-date="Sun Jun 16 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLIV</h2>
-              <div class="date-container">
-                <h3>16 Jun 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLIII.md"
-              data-title="Ruby Crown XLIII"
-              data-date="Sun Jun 09 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLIII</h2>
-              <div class="date-container">
-                <h3>9 Jun 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLII.md"
-              data-title="Ruby Crown XLII"
-              data-date="Sun Jun 02 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLII</h2>
-              <div class="date-container">
-                <h3>2 Jun 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XLI.md"
-              data-title="Ruby Crown XLI"
-              data-date="Sun May 19 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XLI</h2>
-              <div class="date-container">
-                <h3>19 May 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XL.md"
-              data-title="Ruby Crown XL"
-              data-date="Sun May 12 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XL</h2>
-              <div class="date-container">
-                <h3>12 May 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXIX.md"
-              data-title="Ruby Crown XXXIX"
-              data-date="Sun May 05 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XXXIX</h2>
-              <div class="date-container">
-                <h3>5 May 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXVIII.md"
-              data-title="Ruby Crown XXXVIII"
-              data-date="Sun Apr 28 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XXXVIII</h2>
-              <div class="date-container">
-                <h3>28 Apr 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXVII.md"
-              data-title="Ruby Crown XXXVII"
-              data-date="Sun Apr 21 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XXXVII</h2>
-              <div class="date-container">
-                <h3>21 Apr 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXIV.md"
-              data-title="Ruby Crown XXXIV"
-              data-date="Sat Apr 13 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XXXIV</h2>
-              <div class="date-container">
-                <h3>13 Apr 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXV.md"
-              data-title="Ruby Crown XXXV"
-              data-date="Sat Apr 13 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XXXV</h2>
-              <div class="date-container">
-                <h3>13 Apr 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXVI.md"
-              data-title="Ruby Crown XXXVI"
-              data-date="Sat Apr 13 2024 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown XXXVI</h2>
-              <div class="date-container">
-                <h3>13 Apr 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown Bonus - Excerpt from the memory of the elf.md"
-              data-title="Ruby Crown Bonus - Excerpt from the memory of the elf"
-              data-date="Wed Mar 06 2024 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown Bonus - Excerpt from the memory of the elf</h2>
-              <div class="date-container">
-                <h3>6 Mar 2024</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXVII.md"
-              data-title="Ruby Crown XXVII"
-              data-date="Sun Nov 26 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown XXVII</h2>
-              <div class="date-container">
-                <h3>26 Nov 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXVI.md"
-              data-title="Ruby Crown XXVI"
-              data-date="Sun Nov 19 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown XXVI</h2>
-              <div class="date-container">
-                <h3>19 Nov 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXV.md"
-              data-title="Ruby Crown XXV"
-              data-date="Sun Nov 12 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown XXV</h2>
-              <div class="date-container">
-                <h3>12 Nov 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown - Escapades in the City.md"
-              data-title="Ruby Crown - Escapades in the City"
-              data-date="Thu Jul 13 2023 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown - Escapades in the City</h2>
-              <div class="date-container">
-                <h3>13 Jul 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown X.md"
-              data-title="Ruby Crown X"
-              data-date="Sun Apr 23 2023 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown X</h2>
-              <div class="date-container">
-                <h3>23 Apr 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown IX.md"
-              data-title="Ruby Crown IX"
-              data-date="Mon Apr 10 2023 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown IX</h2>
-              <div class="date-container">
-                <h3>10 Apr 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown VII.md"
-              data-title="Ruby Crown VII"
-              data-date="Tue Apr 04 2023 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Ruby Crown VII</h2>
-              <div class="date-container">
-                <h3>4 Apr 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown VI.md"
-              data-title="Ruby Crown VI"
-              data-date="Fri Mar 24 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown VI</h2>
-              <div class="date-container">
-                <h3>24 Mar 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown V.md"
-              data-title="Ruby Crown V"
-              data-date="Tue Mar 14 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown V</h2>
-              <div class="date-container">
-                <h3>14 Mar 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown III and IV.md"
-              data-title="Ruby Crown III and IV"
-              data-date="Wed Mar 08 2023 14:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown III and IV</h2>
-              <div class="date-container">
-                <h3>8 Mar 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown II.md"
-              data-title="Ruby Crown II"
-              data-date="Wed Mar 08 2023 13:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown II</h2>
-              <div class="date-container">
-                <h3>8 Mar 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown I.md"
-              data-title="Ruby Crown I"
-              data-date="Wed Mar 08 2023 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Ruby Crown I</h2>
-              <div class="date-container">
-                <h3>8 Mar 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown - Chains in the Dark Cold Catacomb.md"
-              data-title="Ruby Crown - Chains in the Dark Cold Catacomb"
-              data-date=""
-            >
-              <h2>Ruby Crown - Chains in the Dark Cold Catacomb</h2>
-              <span class="book-strip" style="background-color: #ff4000"></span>
-
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown - The Angel, The Claim, and the Judgement.md"
-              data-title="Ruby Crown - The Angel, The Claim, and the Judgement"
-              data-date=""
-            >
-              <h2>Ruby Crown - The Angel, The Claim, and the Judgement</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown Interlude - Angel, Scholar, Marquee.md"
-              data-title="Ruby Crown Interlude - Angel, Scholar, Marquee"
-              data-date=""
-            >
-              <h2>Ruby Crown Interlude - Angel, Scholar, Marquee</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown Interlude - Interrogation of the Divine Servant.md"
-              data-title="Ruby Crown Interlude - Interrogation of the Divine Servant"
-              data-date=""
-            >
-              <h2>
-                Ruby Crown Interlude - Interrogation of the Divine Servant
-              </h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown Interlude - The Thief and the Demon Girl.md"
-              data-title="Ruby Crown Interlude - The Thief and the Demon Girl"
-              data-date=""
-            >
-              <h2>Ruby Crown Interlude - The Thief and the Demon Girl</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XX.md"
-              data-title="Ruby Crown XX"
-              data-date=""
-            >
-              <h2>Ruby Crown XX</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXI.md"
-              data-title="Ruby Crown XXI"
-              data-date=""
-            >
-              <h2>Ruby Crown XXI</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXII.md"
-              data-title="Ruby Crown XXII"
-              data-date=""
-            >
-              <h2>Ruby Crown XXII</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXIII.md"
-              data-title="Ruby Crown XXIII"
-              data-date=""
-            >
-              <h2>Ruby Crown XXIII</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXIV.md"
-              data-title="Ruby Crown XXIV"
-              data-date=""
-            >
-              <h2>Ruby Crown XXIV</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXVIII.md"
-              data-title="Ruby Crown XXVIII"
-              data-date=""
-            >
-              <h2>Ruby Crown XXVIII</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXI.md"
-              data-title="Ruby Crown XXXI"
-              data-date=""
-            >
-              <h2>Ruby Crown XXXI</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXII.md"
-              data-title="Ruby Crown XXXII"
-              data-date=""
-            >
-              <h2>Ruby Crown XXXII</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Ruby Crown XXXIII.md"
-              data-title="Ruby Crown XXXIII"
-              data-date=""
-            >
-              <h2>Ruby Crown XXXIII</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/ruby crown xxix.md"
-              data-title="ruby crown xxix"
-              data-date=""
-            >
-              <h2>ruby crown xxix</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/ruby crown xxx.md"
-              data-title="ruby crown xxx"
-              data-date=""
-            >
-              <h2>ruby crown xxx</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Saltmarsh XIX.md"
-              data-title="Saltmarsh XIX"
-              data-date="Wed Apr 12 2023 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Saltmarsh XIX</h2>
-              <div class="date-container">
-                <h3>12 Apr 2023</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Saltmarsh VI.md"
-              data-title="Saltmarsh VI"
-              data-date="Fri Sep 02 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Saltmarsh VI</h2>
-              <div class="date-container">
-                <h3>2 Sep 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Saltmarsh V.md"
-              data-title="Saltmarsh V"
-              data-date="Thu Aug 25 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Saltmarsh V</h2>
-              <div class="date-container">
-                <h3>25 Aug 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Saltmarsh III.md"
-              data-title="Saltmarsh III"
-              data-date="Fri Aug 19 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Saltmarsh III</h2>
-              <div class="date-container">
-                <h3>19 Aug 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Saltmarsh IV.md"
-              data-title="Saltmarsh IV"
-              data-date="Fri Aug 19 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Saltmarsh IV</h2>
-              <div class="date-container">
-                <h3>19 Aug 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Saltmarsh II.md"
-              data-title="Saltmarsh II"
-              data-date="Fri Aug 05 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Saltmarsh II</h2>
-              <div class="date-container">
-                <h3>5 Aug 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Saltmarsh I.md"
-              data-title="Saltmarsh I"
-              data-date="Sat Jul 23 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Saltmarsh I</h2>
-              <div class="date-container">
-                <h3>23 Jul 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Chachumtak 1 - The Snake learns of the Charioteer.md"
-              data-title="Chachumtak 1 - The Snake learns of the Charioteer"
-              data-date="Sat Sep 10 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Chachumtak 1 - The Snake learns of the Charioteer</h2>
-              <div class="date-container">
-                <h3>10 Sep 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Expedition Log - The Korianis Crew.md"
-              data-title="Expedition Log - The Korianis Crew"
-              data-date="Sun Sep 04 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Expedition Log - The Korianis Crew</h2>
-              <div class="date-container">
-                <h3>4 Sep 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Shitpost I - Saltmarsh Canonical Ending.md"
-              data-title="Shitpost I - Saltmarsh Canonical Ending"
-              data-date="Sun Aug 21 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Shitpost I - Saltmarsh Canonical Ending</h2>
-              <div class="date-container">
-                <h3>21 Aug 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Witchlight IV.md"
-              data-title="Witchlight IV"
-              data-date="Tue May 17 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Witchlight IV</h2>
-              <div class="date-container">
-                <h3>17 May 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Witchlight I.md"
-              data-title="Witchlight I"
-              data-date="Fri Apr 22 2022 00:00:00 GMT+1200 (New Zealand Standard Time)"
-            >
-              <h2>Witchlight I</h2>
-              <div class="date-container">
-                <h3>22 Apr 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Witchlight III.md"
-              data-title="Witchlight III"
-              data-date=""
-            >
-              <h2>Witchlight III</h2>
-              <div class="date-container">
-                <h3></h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Moonless VI.md"
-              data-title="Moonless VI"
-              data-date="Sat Mar 05 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Moonless VI</h2>
-              <div class="date-container">
-                <h3>5 Mar 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Moonless V.md"
-              data-title="Moonless V"
-              data-date="Sat Feb 19 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Moonless V</h2>
-              <div class="date-container">
-                <h3>19 Feb 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Moonless IV.md"
-              data-title="Moonless IV"
-              data-date="Fri Jan 21 2022 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Moonless IV</h2>
-              <div class="date-container">
-                <h3>21 Jan 2022</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Moonless III.md"
-              data-title="Moonless III"
-              data-date="Sun Dec 19 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Moonless III</h2>
-              <div class="date-container">
-                <h3>19 Dec 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Moonless II.md"
-              data-title="Moonless II"
-              data-date="Sat Dec 11 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Moonless II</h2>
-              <div class="date-container">
-                <h3>11 Dec 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Moonless I.md"
-              data-title="Moonless I"
-              data-date="Sat Nov 27 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Moonless I</h2>
-              <div class="date-container">
-                <h3>27 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Icewind Dale 0.md"
-              data-title="Icewind Dale 0"
-              data-date="Tue Nov 30 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Icewind Dale 0</h2>
-              <div class="date-container">
-                <h3>30 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Icewind Dale Downtime 1 - Moonwhisper.md"
-              data-title="Icewind Dale Downtime 1 - Moonwhisper"
-              data-date="Tue Nov 30 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Icewind Dale Downtime 1 - Moonwhisper</h2>
-              <div class="date-container">
-                <h3>30 Nov 2021</h3>
-              </div>
-            </article>
-            <article
-              class="book"
-              onpointerup="book_pointerup(event)"
-              data-contenturl="content/dagloopyrpgdiary/Icewind Dale Downtime 2 - Sorville.md"
-              data-title="Icewind Dale Downtime 2 - Sorville"
-              data-date="Tue Nov 30 2021 00:00:00 GMT+1300 (New Zealand Daylight Time)"
-            >
-              <h2>Icewind Dale Downtime 2 - Sorville</h2>
-              <div class="date-container">
-                <h3>30 Nov 2021</h3>
-              </div>
-            </article>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire X.md"
+              title="The Royan Empire X"
+              date="15 May 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire IX.md"
+              title="The Royan Empire IX"
+              date="1 May 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire VII.md"
+              title="The Royan Empire VII"
+              date="17 Apr 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire VI.md"
+              title="The Royan Empire VI"
+              date="10 Apr 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire - The Waking of Kurumbushai.md"
+              title="The Royan Empire - The Waking of Kurumbushai"
+              date="8 Apr 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire - Punarutthaan for Cholco.md"
+              title="The Royan Empire - Punarutthaan for Cholco"
+              date="6 Apr 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire V.md"
+              title="The Royan Empire V"
+              date="3 Apr 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire IV.md"
+              title="The Royan Empire IV"
+              date="27 Mar 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire III.md"
+              title="The Royan Empire III"
+              date="20 Mar 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire II.md"
+              title="The Royan Empire II"
+              date="13 Mar 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire I.md"
+              title="The Royan Empire I"
+              date="6 Mar 2025"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire 0.md"
+              title="The Royan Empire 0"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/The Royan Empire VIII.md"
+              title="The Royan Empire VIII"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLIX.md"
+              title="Ruby Crown XLIX"
+              date="28 Jul 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLVIII.md"
+              title="Ruby Crown XLVIII"
+              date="21 Jul 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLVII.md"
+              title="Ruby Crown XLVII"
+              date="7 Jul 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLVI.md"
+              title="Ruby Crown XLVI"
+              date="30 Jun 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLV.md"
+              title="Ruby Crown XLV"
+              date="23 Jun 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLIV.md"
+              title="Ruby Crown XLIV"
+              date="16 Jun 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLIII.md"
+              title="Ruby Crown XLIII"
+              date="9 Jun 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLII.md"
+              title="Ruby Crown XLII"
+              date="2 Jun 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XLI.md"
+              title="Ruby Crown XLI"
+              date="19 May 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XL.md"
+              title="Ruby Crown XL"
+              date="12 May 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXIX.md"
+              title="Ruby Crown XXXIX"
+              date="5 May 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXVIII.md"
+              title="Ruby Crown XXXVIII"
+              date="28 Apr 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXVII.md"
+              title="Ruby Crown XXXVII"
+              date="21 Apr 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXIV.md"
+              title="Ruby Crown XXXIV"
+              date="13 Apr 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXV.md"
+              title="Ruby Crown XXXV"
+              date="13 Apr 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXVI.md"
+              title="Ruby Crown XXXVI"
+              date="13 Apr 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown Bonus - Excerpt from the memory of the elf.md"
+              title="Ruby Crown Bonus - Excerpt from the memory of the elf"
+              date="6 Mar 2024"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXVII.md"
+              title="Ruby Crown XXVII"
+              date="26 Nov 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXVI.md"
+              title="Ruby Crown XXVI"
+              date="19 Nov 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXV.md"
+              title="Ruby Crown XXV"
+              date="12 Nov 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown - Escapades in the City.md"
+              title="Ruby Crown - Escapades in the City"
+              date="13 Jul 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown X.md"
+              title="Ruby Crown X"
+              date="23 Apr 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown IX.md"
+              title="Ruby Crown IX"
+              date="10 Apr 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown VII.md"
+              title="Ruby Crown VII"
+              date="4 Apr 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown VI.md"
+              title="Ruby Crown VI"
+              date="24 Mar 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown V.md"
+              title="Ruby Crown V"
+              date="14 Mar 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown III and IV.md"
+              title="Ruby Crown III and IV"
+              date="8 Mar 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown II.md"
+              title="Ruby Crown II"
+              date="8 Mar 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown I.md"
+              title="Ruby Crown I"
+              date="8 Mar 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown - Chains in the Dark Cold Catacomb.md"
+              title="Ruby Crown - Chains in the Dark Cold Catacomb"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown - The Angel, The Claim, and the Judgement.md"
+              title="Ruby Crown - The Angel, The Claim, and the Judgement"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown Interlude - Angel, Scholar, Marquee.md"
+              title="Ruby Crown Interlude - Angel, Scholar, Marquee"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown Interlude - Interrogation of the Divine Servant.md"
+              title="Ruby Crown Interlude - Interrogation of the Divine Servant"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown Interlude - The Thief and the Demon Girl.md"
+              title="Ruby Crown Interlude - The Thief and the Demon Girl"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XX.md"
+              title="Ruby Crown XX"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXI.md"
+              title="Ruby Crown XXI"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXII.md"
+              title="Ruby Crown XXII"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXIII.md"
+              title="Ruby Crown XXIII"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXIV.md"
+              title="Ruby Crown XXIV"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXVIII.md"
+              title="Ruby Crown XXVIII"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXI.md"
+              title="Ruby Crown XXXI"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXII.md"
+              title="Ruby Crown XXXII"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Ruby Crown XXXIII.md"
+              title="Ruby Crown XXXIII"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/ruby crown xxix.md"
+              title="ruby crown xxix"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/ruby crown xxx.md"
+              title="ruby crown xxx"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Saltmarsh XIX.md"
+              title="Saltmarsh XIX"
+              date="12 Apr 2023"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Saltmarsh VI.md"
+              title="Saltmarsh VI"
+              date="2 Sep 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Saltmarsh V.md"
+              title="Saltmarsh V"
+              date="25 Aug 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Saltmarsh III.md"
+              title="Saltmarsh III"
+              date="19 Aug 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Saltmarsh IV.md"
+              title="Saltmarsh IV"
+              date="19 Aug 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Saltmarsh II.md"
+              title="Saltmarsh II"
+              date="5 Aug 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Saltmarsh I.md"
+              title="Saltmarsh I"
+              date="23 Jul 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Chachumtak 1 - The Snake learns of the Charioteer.md"
+              title="Chachumtak 1 - The Snake learns of the Charioteer"
+              date="10 Sep 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Expedition Log - The Korianis Crew.md"
+              title="Expedition Log - The Korianis Crew"
+              date="4 Sep 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Shitpost I - Saltmarsh Canonical Ending.md"
+              title="Shitpost I - Saltmarsh Canonical Ending"
+              date="21 Aug 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Witchlight IV.md"
+              title="Witchlight IV"
+              date="17 May 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Witchlight I.md"
+              title="Witchlight I"
+              date="22 Apr 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Witchlight III.md"
+              title="Witchlight III"
+              date=""
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Moonless VI.md"
+              title="Moonless VI"
+              date="5 Mar 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Moonless V.md"
+              title="Moonless V"
+              date="19 Feb 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Moonless IV.md"
+              title="Moonless IV"
+              date="21 Jan 2022"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Moonless III.md"
+              title="Moonless III"
+              date="19 Dec 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Moonless II.md"
+              title="Moonless II"
+              date="11 Dec 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Moonless I.md"
+              title="Moonless I"
+              date="27 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Icewind Dale 0.md"
+              title="Icewind Dale 0"
+              date="30 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Icewind Dale Downtime 1 - Moonwhisper.md"
+              title="Icewind Dale Downtime 1 - Moonwhisper"
+              date="30 Nov 2021"
+            ></shelf-book>
+            <shelf-book
+              contenturl="content/dagloopyrpgdiary/Icewind Dale Downtime 2 - Sorville.md"
+              title="Icewind Dale Downtime 2 - Sorville"
+              date="30 Nov 2021"
+            ></shelf-book>
             <!-- STOP SHELF: dagloopyrpgdiary -->
           </section>
         </section>

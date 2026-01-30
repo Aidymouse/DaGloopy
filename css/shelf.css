@@ -35,7 +35,6 @@
   column-gap: 1em;
   border-left: solid 1em var(--shelf-shelftop);
   border-right: solid 1em var(--shelf-shelftop);
-  background-color: black;
 }
 
 /** Shelf Top **/
@@ -61,6 +60,12 @@
   height: 5em;
 }
 
+.shelf-header-container {
+  width: 100%;
+  background-color: var(--shelf-back-wall);
+  margin-top: calc(1em);
+}
+
 .shelf-header {
   width: 100%;
   background-color: var(--shelf-header);
@@ -70,7 +75,7 @@
   align-items: center;
   border-top-left-radius: 50% 3em;
   border-top-right-radius: 50% 3em;
-  margin-top: calc(2.2em + 1px);
+  margin-top: calc(1.2em + 1px);
 }
 
 /** A shelf bay holds books in a column */
@@ -88,10 +93,21 @@
 }
 
 /** An article sitting on the shelf has the class book */
+shelf-book {
+  width: 100%;
+}
+
+.book-container {
+  background-color: var(--shelf-back-wall);
+  width: 100%;
+}
+
 .book {
   position: relative;
+
   display: flex;
   flex-direction: row;
+
   background-color: var(--book-bg);
   height: 2.2em;
   align-items: center;
@@ -101,9 +117,10 @@
   border-bottom: solid 1px var(--shelf-shelftop);
   border-left: solid 1px var(--shelf-shelftop);
   width: 100%;
+  cursor: pointer;
 }
 
-.book:hover {
+.book-container:hover .book {
   margin-left: 1em;
   margin-right: -1em;
 }

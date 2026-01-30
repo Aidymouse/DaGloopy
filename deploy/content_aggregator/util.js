@@ -30,17 +30,10 @@ const get_nice_date = (timestamp) => {
   return `${d.getDate()} ${month_map[d.getMonth()]} ${d.getFullYear()}`;
 };
 
-export const get_article_html = (article) => `<article
-    class="book"
-    onpointerup="book_pointerup(event)"
-    data-contenturl="${article.content_url}"
-    data-title="${article.title}"
-    data-date="${article.timestamp ? new Date(article.timestamp) : ""}"
->
-    <h2>${article.title}</h2>
-    <div class="date-container">
-    <h3>${article.timestamp ? get_nice_date(article.timestamp) : ""}</h3>
-	</div>
-</article>`;
+export const get_article_html = (article) => `<shelf-book
+    contenturl="${article.content_url}"
+    title="${article.title}"
+    date="${article.timestamp ? get_nice_date(article.timestamp) : ""}"
+></shelf-book>`;
 
 export const shelf_regex = `<!-- SHELF: shelftitle -->(.|\\n)*<!-- STOP SHELF: shelftitle -->`;
