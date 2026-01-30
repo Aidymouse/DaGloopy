@@ -790,12 +790,6 @@
       <section id="floating_book" class="floating_book"></section>
     </main>
 
-    <template id="article-nav">
-      <nav>
-        <button onclick="close_viewer()">Back</button>
-      </nav>
-    </template>
-
     <main class="screen viewer_view" id="viewer_view">
       <section id="floating_loader" class="floating_loader">
         <nav class="viewer-nav">
@@ -811,14 +805,14 @@
       </section>
 
       <section id="viewed_article" class="viewed_article">
-        <nav>
+        <nav class="viewer-nav">
           <button onclick="close_viewer()">Back</button>
         </nav>
         <article
           id="viewed_article_content"
           class="article_content viewed_article_content"
         ></article>
-        <nav>
+        <nav class="viewer-nav">
           <button onclick="close_viewer()">Back</button>
         </nav>
       </section>

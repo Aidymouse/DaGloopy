@@ -35,6 +35,12 @@ pre {
 
 button {
   padding: 1em;
+  background-color: #555555;
+  color: var(--text-main);
+}
+
+button:hover {
+  background-color: #777777;
 }
 
 a {
