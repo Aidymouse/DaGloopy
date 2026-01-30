@@ -36,6 +36,29 @@ for path in content_files:
     filetype = content_url.split(".")[-1] # Don't lie to me!
 
     # TODO: tag parsing on md files to sort by date
+    with open(path, "r") as article:
+        lines = article.readlines()
+        for line in lines:
+            m = re.search(r"^(.+?):(.*)\n", line)
+
+            if (m == None or line.strip() == ""):
+                break
+
+            tag = m.group(1).strip().lower()
+            tag_content = m.group(2).strip()
+
+            if tag == 'date':
+                print('Date', tag_content)
+                break
+            elif tag == 'tags':
+                print('tags')
+                break
+            else:
+                print(f"Unhandled tag: {tag}")
+                
+
+
+
 
     article_html = f'''
 <article
@@ -100,6 +123,9 @@ for shelf in shelves:
         print(f"Seen shelf: {shelf}")
         seen_shelves.append(shelf)
 
-with open(f"{sys.path[0]}/../../index.html", "w") as writeIndex:
-    writeIndex.write(data)
+if ("--deploy" in sys.argv):
+    with open(f"{sys.path[0]}/../../index.html", "w") as writeIndex:
+        writeIndex.write(data)
+else:
+    print(f"{bcolors.OKBLUE}Not writing the file. Re-run with --deploy to do that")
     
