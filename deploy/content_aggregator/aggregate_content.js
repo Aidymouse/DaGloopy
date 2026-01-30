@@ -17,6 +17,36 @@ shelfcontent
 
 let shelves = {};
 
+const diary_sorter = (articles) => {
+  let series_names = [];
+  for (const article of articles) {
+    let series_name = article.title.split(" ")[0].toLowerCase();
+    if (series_name === "the") {
+      series_name += " " + article.title.split(" ")[1].toLowerCase();
+    }
+    if (!series_names.includes(series_name)) {
+      series_names.push(series_name);
+    }
+  }
+
+  let sorted_shelf = [];
+  for (const series_name of series_names) {
+    let sorted_series = articles.filter((a) =>
+      a.title.toLowerCase().startsWith(series_name),
+    );
+
+    console.log(sorted_series.map((a) => a.title));
+
+    sorted_series = sorted_series.sort(
+      (a, b) => (b.timestamp ?? 0) - (a.timestamp ?? 0),
+    );
+
+    sorted_shelf = sorted_shelf.concat(sorted_series);
+  }
+
+  return sorted_shelf;
+};
+
 const ignored_folders = ["public", "content"];
 
 const aggregate_content = async () => {
@@ -73,19 +103,14 @@ const aggregate_content = async () => {
 
   for (const shelfName of Object.keys(shelves)) {
     // Sort articles by date
-    // shelves[shelfName] = shelves[shelfName].sort(
-    //   (a, b) => b.timestamp - a.timestamp,
-    // );
     let sortedShelf = shelves[shelfName].sort(
       (a, b) => (b.timestamp ?? 0) - (a.timestamp ?? 0),
     );
 
+    // Special sort for diary
     if (shelfName === "dagloopyrpgdiary") {
-      sortedShelf = shelves[shelfName].sort((a, b) =>
-        b.name - a.name === 0
-          ? (b.timestamp ?? 0) - (a.timestamp ?? 0)
-          : b.name - a.name,
-      );
+      sortedShelf = diary_sorter(shelves[shelfName]);
+      console.log(sortedShelf.map((a) => a.title));
     }
 
     console.log(`Pushing ${bcolors.OKBLUE}'${shelfName}'${bcolors.ENDC}`);

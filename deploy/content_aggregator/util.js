@@ -41,7 +41,9 @@ export const get_article_html = (article) => `<article
     data-date="${article.timestamp ? new Date(article.timestamp) : ""}"
 >
     <h2>${article.title}</h2>
-    <h3>${get_nice_date(article.timestamp)}</h2>
+    <div class="date-container">
+    <h3>${article.timestamp ? get_nice_date(article.timestamp) : ""}</h3>
+	</div>
 </article>`;
 
 export const shelf_regex = `<!-- SHELF: shelftitle -->(.|\\n)*<!-- STOP SHELF: shelftitle -->`;

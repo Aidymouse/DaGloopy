@@ -7,8 +7,17 @@ const tag_re = /^(.+?):(.*)/;
  * @param {string} filepath
  * @param {article} article
  */
+
+const series_color_map = {
+  "ruby crown": "#ff4000",
+  "royan empire": "#009933",
+  "the royan empire": "#009933",
+};
+
 export const parse_md = async (filepath, article) => {
   const content = await fs.readFile(filepath, { encoding: "utf8" });
+
+  let series = null;
 
   // Parse md tags to find date
   // TODO: tags
@@ -27,6 +36,13 @@ export const parse_md = async (filepath, article) => {
         article.timestamp = new Date(tag_content).valueOf();
         break;
       }
+      case "tags": {
+        //TODO
+        break;
+      }
+      case "series": {
+        series = tag_content;
+      }
       default: {
         console.log(`${bcolors.FAIL}Unhandled tag '${tag}'${bcolors.ENDC}`);
       }
@@ -34,4 +50,10 @@ export const parse_md = async (filepath, article) => {
   }
 
   article.html = get_article_html(article);
+  if (series !== null) {
+    article.html = article.html.replace(
+      "</h2>",
+      `</h2><span class="book-strip" style="background-color: ${series_color_map[series]};"></span>\n`,
+    );
+  }
 };
