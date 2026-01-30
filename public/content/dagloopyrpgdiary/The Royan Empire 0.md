@@ -1,4 +1,6 @@
 Tags: The Royan Empire
+series:the royan empire
+
 # The Royan Empire
 
 She'd allied with the Gaian, and that was her first mistake. She thought their affinity with water would help, but Ashē-Manara forgot, or did not care, that their rivalry with the Royan is their utmost trait. The Naiad do not live close to the civilised place. There aren't enough of them to matter. She could not have guessed how much that conflict impacted their lives. Their culture. She did not realise that the only Gaian she would find to undertake such a bold mission so close to the reaches of the empire would be those that might have the stomach to tolerate them.

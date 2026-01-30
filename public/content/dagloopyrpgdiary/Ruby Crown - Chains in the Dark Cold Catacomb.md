@@ -1,3 +1,5 @@
+series:ruby crown
+
 The Marquee Allant-Ratan-Rosse sat chained in the catacombs beneath the Church of Tenebrous. His legs lay upon carved stone, his torso draped over a cold sepulcher.
 
 When they dragged him in, he had been vocal. He had threatened them, pleaded, bargained. He had called every soldier within earshot and demanded his defense, invoked the power he wielded as a Marquee of the Lawful Council. The Arms of Law did not care, but impassively dragged him into the depths of the church and chained him up.

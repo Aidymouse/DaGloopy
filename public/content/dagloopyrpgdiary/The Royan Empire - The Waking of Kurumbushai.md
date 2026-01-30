@@ -1,5 +1,6 @@
 Tags: The Royan Empire, Myth
 Date: 8 April 2025
+series:the royan empire
 
 # The Waking of Kurumbushai
 
