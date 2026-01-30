@@ -1,7 +1,7 @@
 const series_color_map = {
-  "ruby crown": "#ff4000",
-  "royan empire": "#009933",
-  "the royan empire": "#009933",
+  "ruby crown": "#a12323",
+  "royan empire": "#689923",
+  "the royan empire": "#689923",
 };
 
 export class ShelfBook extends HTMLElement {
