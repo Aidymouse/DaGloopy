@@ -7,6 +7,7 @@
 
   --shelf-bg: #1a0d00;
   --shelf-shelftop: #4d2600;
+  --shelf-header: #3c1500;
 
   --book-bg: #996633;
 
@@ -17,7 +18,7 @@
 }
 
 pre {
-	white-space: pre-line;
+  white-space: pre-line;
 }
 
 /** Z Indexes 
