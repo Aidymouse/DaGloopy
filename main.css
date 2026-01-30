@@ -16,6 +16,10 @@
   --trans: 0.4s;
 }
 
+pre {
+	white-space: pre-line;
+}
+
 /** Z Indexes 
  *
  * 0-10: Shelf zone
