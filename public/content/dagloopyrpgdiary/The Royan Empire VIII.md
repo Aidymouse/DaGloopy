@@ -1,4 +1,7 @@
 Tags: The Royan Empire
+date:24 April 2025
+series:the royan empire
+
 # The Royan Empire VIII
 
 The expeditioners move west to a standing stone caked in moss. There's a shape moving there, like the moss is a blanket and the shape is moving underneath it. **Edwina** pokes it with her stick and is surprised when it forms eyes and a mouth. **B.S.P** recognises the spirit language of the leshy. The plant spirit says "go away!" Turns out it's unfriendly to those that "don't have the antennae or mandibles."

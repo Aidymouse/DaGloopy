@@ -1,5 +1,6 @@
 Tags: The Royan Empire
 Date: 6 March 2025
+series:the royan empire
 
 # The Royan Empire I
 
