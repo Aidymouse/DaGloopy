@@ -32,9 +32,6 @@ const get_nice_date = (timestamp) => {
 
 export const get_article_html = (article) => `<article
     class="book"
-    draggable="true"
-    ondragstart="book_dragstart(event)"
-    ondragend="book_dragend(event)"
     onpointerup="book_pointerup(event)"
     data-contenturl="${article.content_url}"
     data-title="${article.title}"
