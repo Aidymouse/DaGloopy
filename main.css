@@ -17,10 +17,6 @@
   --trans: 0.4s;
 }
 
-pre {
-  white-space: pre-line;
-}
-
 /** Z Indexes 
  *
  * 0-10: Shelf zone
@@ -30,6 +26,14 @@ pre {
  * 36: Floating Loader
  *
  */
+
+pre {
+  white-space: pre-line;
+}
+
+button {
+  padding: 1em;
+}
 
 a {
   color: var(--text-link);
