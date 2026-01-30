@@ -41,7 +41,7 @@ export const parse_md = async (filepath, article) => {
         break;
       }
       case "series": {
-        series = tag_content;
+        article.series = tag_content;
       }
       default: {
         console.log(`${bcolors.FAIL}Unhandled tag '${tag}'${bcolors.ENDC}`);
@@ -50,10 +50,4 @@ export const parse_md = async (filepath, article) => {
   }
 
   article.html = get_article_html(article);
-  if (series !== null) {
-    article.html = article.html.replace(
-      "</h2>",
-      `</h2><span class="book-strip" style="background-color: ${series_color_map[series]};"></span>\n`,
-    );
-  }
 };

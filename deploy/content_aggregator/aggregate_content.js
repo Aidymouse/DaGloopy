@@ -8,6 +8,7 @@ import { shelf_regex, bcolors } from "./util.js";
  * @property {string} filetype
  * @property {string} content_url
  * @property {number} timestamp
+ * @property {string} series
  * @property {string} html
  */
 
@@ -80,6 +81,7 @@ const aggregate_content = async () => {
       content_url: dir.replace(/^.+?content/, "content") + `/${filename}`,
       date: null,
       html: "",
+      series: "",
     };
 
     switch (filetype) {

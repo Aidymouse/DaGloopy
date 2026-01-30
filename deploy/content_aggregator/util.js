@@ -34,6 +34,7 @@ export const get_article_html = (article) => `<shelf-book
     contenturl="${article.content_url}"
     title="${article.title}"
     date="${article.timestamp ? get_nice_date(article.timestamp) : ""}"
+    series="${article.series}"
 ></shelf-book>`;
 
 export const shelf_regex = `<!-- SHELF: shelftitle -->(.|\\n)*<!-- STOP SHELF: shelftitle -->`;
