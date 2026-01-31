@@ -8,7 +8,7 @@ They sit in the very dining room where Ludo first revealed himself. Lord Slade, 
 
 Slade is distracted, but his attention turns to Discognia. He cannot help but notice how the marquesss knife cuts through steak effortlessly, like a tiger claw would carve flesh. Realising it has been quiet for too long, he looks quickly at Ludo.
 
-"Oh. Oh... yes. It c- cant be qu-quite troubling."
+"Oh. Oh... yes. It c- can be qu-quite troubling."
 
 Looking at his food, Ludo replies as if nothing is amiss. "I do not envy you, my friend Slade. All sorts of trouble can be caused by sorcery. You know I hear tale from Boruntun of a shapeshifter. Isn't that a troubling thought."
 
