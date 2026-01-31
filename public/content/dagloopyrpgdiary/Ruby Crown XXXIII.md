@@ -1,3 +1,5 @@
+date:23 March 2024
+
 # Ruby Crown XXXIII
 
 Doppelgangers are growing a clay giant in the swamps of the prioro marsh. The Friends have found them, and taken some out from the trees before they could be found. Now the giant knows they're hear and the fight is on.

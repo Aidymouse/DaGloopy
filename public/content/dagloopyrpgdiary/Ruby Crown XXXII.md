@@ -1,3 +1,4 @@
+date:16 March 2024
 # Ruby Crown XXXII
 
 The Friends are back in Fangmire, where the game started. Things are different now. I did a pretty bad job establishing the town when they first started, so there isn't much to contrast it to, but the town is now quiet, uninviting.

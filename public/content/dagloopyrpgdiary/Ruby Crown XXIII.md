@@ -1,3 +1,6 @@
+date:29 October 2023
+series:ruby crown
+
 # Ruby Crown XXIII
 
 _Writing this one shorter with commentary interspersed. The long ones take too long to write._
