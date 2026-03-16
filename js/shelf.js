@@ -35,6 +35,7 @@ export const load_article = (url, load_callback) => {
   });
 };
 
+/* */
 export const book_pointerup = (e) => {
   const content = e.currentTarget.getAttribute("data-contenturl");
 
@@ -53,11 +54,14 @@ export const book_pointerup = (e) => {
         return;
       }
 
-      viewed_article_content.innerHTML = processed;
-      mock_article_content.innerHTML = processed;
+      ghost_article_content.innerHTML = processed;
+      article_content.innerHTML = processed;
 
-      viewed_article_content.classList.add("open");
-      mock_article_content.classList.add("open");
+      // viewed_article_content.innerHTML = processed;
+      // mock_article_content.innerHTML = processed;
+      //
+      // viewed_article_content.classList.add("open");
+      // mock_article_content.classList.add("open");
     }, 0); // <-- this is a load time simulator
   });
 

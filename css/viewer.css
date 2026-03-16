@@ -17,6 +17,21 @@
   z-index: 20;
 }
 
+/* Styles shared by the article viewed and the invisible height acquirer */
+.article-sizing-shared {
+  width: 40%;
+  max-width: 40%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  min-width: 40em;
+};
+
+.article-content-shared {
+  padding-left: 3em;
+  padding-right: 3em;
+  line-height: 1.5;
+}
+
 .viewed_article {
   position: absolute;
   display: block;
@@ -24,14 +39,11 @@
   height: auto;
   transition-duration: var(--trans);
 
-  margin-top: 3em;
-  margin-bottom: 3em;
-  width: 40%;
-  max-width: 40%;
-  min-width: 40em;
   background-color: var(--article-bg);
   /*opacity: 0;*/
   opacity: 0;
+
+  overflow: hidden;
 }
 
 .viewed_article_content {
@@ -41,15 +53,9 @@
   height: 0;
   overflow: hidden;
 
-  &.open {
-    height: calc-size(auto, size);
-  }
 }
 
 .article_content {
-  padding-left: 3em;
-  padding-right: 3em;
-  line-height: 1.5;
   height: 0;
 }
 
@@ -88,9 +94,5 @@
   padding: 0.5em;
   font-size: 12pt;
   transition: opacity var(--trans);
-  opacity: 0;
 
-  &.open {
-    opacity: 1;
-  }
 }

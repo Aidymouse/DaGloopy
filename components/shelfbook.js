@@ -1,7 +1,7 @@
 const series_color_map = {
-  "ruby crown": "#a12323",
-  "royan empire": "#689923",
-  "riddle of steel": "orange",
+	"ruby crown": "#a12323",
+	"royan empire": "#689923",
+	"riddle of steel": "orange",
 };
 // Color map aliases
 series_color_map["ruby"] = series_color_map["ruby crown"];
@@ -10,25 +10,25 @@ series_color_map["the royan"] = series_color_map["royan empire"];
 series_color_map["the royan empire"] = series_color_map["royan empire"];
 
 export class ShelfBook extends HTMLElement {
-  static observed_attributes = ["title", "date", "contenturl", "series"];
+	static observed_attributes = ["title", "date", "contenturl", "series"];
 
-  constructor() {
-    super();
-  }
+	constructor() {
+		super();
+	}
 
-  connectedCallback() {
-    this.innerHTML = this.render();
-  }
+	connectedCallback() {
+		this.innerHTML = this.render();
+	}
 
-  attributeChangedCallback(attr, oldVal, newVal) {}
+	attributeChangedCallback(attr, oldVal, newVal) { }
 
-  render() {
-    const series = this.getAttribute("series");
-    const series_style = series_color_map[series]
-      ? `style="background-color: ${series_color_map[series]}"`
-      : "";
+	render() {
+		const series = this.getAttribute("series");
+		const series_style = series_color_map[series]
+			? `style="background-color: ${series_color_map[series]}"`
+			: "";
 
-    return `<article class="book-container">
+		return `<article class="book-container">
                 <article class="book" 
 		      ${this.getAttribute("contenturl") ? 'onpointerup="book_pointerup(event)"' : ""}
 		      data-contenturl="${this.getAttribute("contenturl") ?? ""}"
@@ -43,5 +43,5 @@ export class ShelfBook extends HTMLElement {
 		  </div>
                 </article>
               </article>`;
-  }
+	}
 }

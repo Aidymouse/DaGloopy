@@ -792,31 +792,28 @@
     </main>
 
     <main class="screen viewer_view" id="viewer_view">
-      <section id="floating_loader" class="floating_loader">
-        <nav class="viewer-nav">
-          <button onclick="close_viewer()">Back</button>
-        </nav>
-        <article
-          id="mock_article_content"
-          class="article_content mock_article_content"
-        ></article>
-        <nav class="viewer-nav">
-          <button onclick="close_viewer()">Back</button>
-        </nav>
+
+      <section id="ghost_article_content" class="article-content-shared" style="position: fixed; opacity: 0;">
+        <!-- Text will go here -->
       </section>
 
-      <section id="viewed_article" class="viewed_article">
+      <!-- Viewed Article is what matches to the books size and expands to article size -->
+      <section id="viewed_article" class="article-sizing-shared">
+        <!-- TODO: book element to fade out here -->
         <nav class="viewer-nav">
-          <button onclick="close_viewer()">Back</button>
+          <button>Back</button>
+          <!-- TODO: next / prev in series buttons -->
         </nav>
-        <article
-          id="viewed_article_content"
-          class="article_content viewed_article_content"
-        ></article>
+        <section id="article_content" class="article-content-shared">
+          <!-- Article content will load in here -->
+        </section>
         <nav class="viewer-nav">
-          <button onclick="close_viewer()">Back</button>
+          <button>Back</button>
         </nav>
+        </section id="article_sizer">
       </section>
+
+
     </main>
   </body>
 </html>
