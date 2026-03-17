@@ -793,22 +793,24 @@
 
     <main class="screen viewer_view" id="viewer_view">
 
-      <section id="ghost_article_content" class="article-content-shared" style="position: fixed; opacity: 0;">
-        <!-- Text will go here -->
+      <section class="ghost article-sizing-shared">
+        <section id="ghost_article_content" class="article-content-shared" opacity: 0;">
+          <!-- Text will go here -->
+        </section>
       </section>
 
       <!-- Viewed Article is what matches to the books size and expands to article size -->
       <section id="viewed_article" class="article-sizing-shared">
         <!-- TODO: book element to fade out here -->
         <nav class="viewer-nav">
-          <button>Back</button>
+          <button onClick="close_viewer()">Back</button>
           <!-- TODO: next / prev in series buttons -->
         </nav>
         <section id="article_content" class="article-content-shared">
           <!-- Article content will load in here -->
         </section>
         <nav class="viewer-nav">
-          <button>Back</button>
+          <button onClick="close_viewer()">Back</button>
         </nav>
         </section id="article_sizer">
       </section>

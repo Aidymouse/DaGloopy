@@ -17,6 +17,12 @@
   z-index: 20;
 }
 
+/* Should not be interacted with EVER! */
+.ghost {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Styles shared by the article viewed and the invisible height acquirer */
 .article-sizing-shared {
   width: 40%;
@@ -24,7 +30,7 @@
   margin-top: 3em;
   margin-bottom: 3em;
   min-width: 40em;
-};
+}
 
 .article-content-shared {
   padding-left: 3em;
@@ -40,8 +46,6 @@
   transition-duration: var(--trans);
 
   background-color: var(--article-bg);
-  /*opacity: 0;*/
-  opacity: 0;
 
   overflow: hidden;
 }
@@ -55,8 +59,9 @@
 
 }
 
-.article_content {
+#article_content {
   height: 0;
+  transition-duration: 0.4s;
 }
 
 .mock_article_content {

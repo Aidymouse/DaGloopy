@@ -17,57 +17,24 @@ export const initiate_viewer = (e) => {
 		["transition-duration"]: "0s",
 		display: 'block', // Reset if been closed before
 		transform: `translate(${click_rect.x - rect.x}px, ${click_rect.y - rect.y}px)`,
+		["clip-path"]: `rect(0px ${click_rect.width}px ${click_rect.height}px 0px)`
 	});
 	//match_size(viewed_article, e.currentTarget);
 	viewed_article.style.display = "block";
 
 
 
-	let x = viewed_article.offsetLeft;
-	viewed_article.style["transition-duration"] = `${globalThis.trans}s`;
+	let x = viewed_article.offsetLeft; // WARN: this is a hack that recalculates dom positioning and updates floating_loader instantly rather than using a propery animation approach
 
-	viewed_article.style.opacity = "1";
 	set_style(viewed_article, {
-		opacity: '1',
-		transform: `translate(0px, 0px)`
-	})
-	//viewed_article.style.height = ""; 
+		["transition-duration"]: `${globalThis.trans}s`,
+		transform: `translate(0px, 0px)`,
+		["clip-path"]: `rect(0px 100% 100% 0px)`
+	});
 
-
-	// let x = floating_loader.offsetLeft;
-	// // WARN: this is a hack that recalculates dom positioning and updates floating_loader instantly rather than using a propery animation approach
-	// // TODO: update instantly but animate from here - maybe use CSS animation? https://stackoverflow.com/questions/49286413/changing-an-html-elements-style-in-javascript-with-its-css-transition-temporari
-	//
-	// floating_loader.style["transition-duration"] = `${globalThis.trans}s`;
-	//
-	// // Remove the custom style forcing the viewed article into book shape, so it goes back to normal.
-	//
-	// // Update floatng loaders pos to the article (which may or may not be loaded, but the viewed article is now in place
-	// //match_size(floating_loader, viewed_article);
-	//
-	// floating_loader.style.height = "auto"; // Override height because fixed height of viewed_article makes background color fail to expand
-	// floating_loader.classList.add("open");
-	//
-	// viewer_view.style["background-color"] = "rgba(0, 0, 0, 0.8)";
-	//
-	// const navs = document.getElementsByClassName("viewer-nav");
-	// for (const nav of navs) {
-	// 	nav.classList.add("open");
-	// }
-	//
-	// // TODO: cancel this if we click close too quick
-	// setTimeout(() => {
-	// 	viewed_article.style["transition-duration"] = "0s";
-	// 	viewed_article.style.opacity = "1";
-	// 	let x2 = viewed_article.offsetLeft;
-	// 	viewed_article.style["transition-duration"] = `${globalThis.trans}s`;
-	//
-	// 	//floating_loader.style.opacity = "0";
-	// 	floating_loader.style.display = "none";
-	// 	floating_loader.classList.remove("open");
-	// }, globalThis.trans * 1000);
 };
 
+// TODO:
 export const close_viewer = () => {
 	// Constructs the floating book div on the shelf layer and lets it fly back into the shelf
 
@@ -86,7 +53,7 @@ export const close_viewer = () => {
 		</heading>
 		`;
 
-	floating_book.querySelector("#viewed_article_content").id = "";
+	floating_book.querySelector("#article_content").id = "";
 	// TODO: query into floating book and change article content so it's fixed width and doesn't reflow on close
 	set_style(floating_book, {
 		display: "",
@@ -102,17 +69,12 @@ export const close_viewer = () => {
 	viewed_article.style["transition-duration"] = "0s";
 	viewed_article.style.opacity = "0";
 	// Reset content so subsequent books don't flash with previous book content first
-	viewed_article_content.innerHTML = "";
+	article_content.innerHTML = "";
+	ghost_article_content.innerHTML = "";
 	let x2 = viewed_article.offsetLeft;
 	viewed_article.style["transition-duration"] = `${globalThis.trans}`;
 
-	setTimeout(() => {
-		viewer_view.style.display = "none";
-	}, 0.2 * 1000);
-
 	// Reset relevant viewer state
-	viewed_article_content.classList.remove("open");
-	mock_article_content.classList.remove("open");
 	floating_loader.style.height = "";
 
 	// Set floating book to new pos
