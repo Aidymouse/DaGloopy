@@ -50,10 +50,13 @@ export const close_viewer = () => {
 
   viewer_view.style.display = "none";
 
+  floating_book.style["transition-duration"] = `0s`;
   floating_book.style["background-color"] = `var(--article-bg)`;
   floating_book.style["margin-top"] = `0px`;
   floating_book.style["left"] = `${viewed_article_rect.x}px`;
   floating_book.style["top"] = `${viewed_article_rect.y}px`;
+  floating_book.style["opacity"] = `1`;
+  floating_book.style["clip-path"] = `rect(0px 100% 100% 0px)`
 
   var x = floating_book.offsetLeft;
 
@@ -62,6 +65,16 @@ export const close_viewer = () => {
   floating_book.style["top"] = `${book_in_shelf_rect.y}px`;
   floating_book.style["clip-path"] =
     `rect(0px ${book_in_shelf_rect.width}px ${book_in_shelf_rect.height}px 0px)`;
+
+  setTimeout(() => {
+    globalThis.book_flying_back.style['opacity'] = '1';
+    floating_book.style['opacity'] = '0';
+    floating_book.style['pointer-events'] = 'none';
+    // Gotta get rid of the id on the floating content so new content gets added to the right place
+    const floating_article_content = floating_book.querySelector('#article_content');
+    floating_article_content.innerHTML = '';
+    floating_article_content.id = '';
+  }, globalThis.trans * 1000)
 
   // TODO: Spawn in fake background (that immediately fades)
 };
