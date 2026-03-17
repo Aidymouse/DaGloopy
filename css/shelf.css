@@ -4,6 +4,13 @@
   transition-duration: 0.2s;
   background-color: var(--desk-bg);
   height: 100vh;
+
+  /* These are set so the floating book (which briefly floats in the middle of the screen is correct */
+  /*
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  */
 }
 
 .shelf-overall-container {
@@ -178,14 +185,22 @@ shelf-book {
   width: 2em;
 }
 
-.floating_book {
+#floating_book {
+  clip-path: rect(0px 100% 100% 0px);
   position: absolute;
-  background-color: blue;
-
-  transition-duration: var(--article-bg);
-  z-index: 35;
-  overflow: hidden;
 }
+
+/* Old class */
+/* .floating_book { */
+/*   position: absolute; */
+/*   background-color: blue; */
+/**/
+/*   /*transition-duration: var(--article-bg);*/
+*/
+/*   transition-duration: var(--trans); */
+/*   z-index: 35; */
+/*   overflow: hidden; */
+/* } */
 
 .floating_book .fb_heading_container {
   position: absolute;

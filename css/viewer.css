@@ -27,8 +27,8 @@
 .article-sizing-shared {
   width: 40%;
   max-width: 40%;
-  margin-top: 3em;
-  margin-bottom: 3em;
+  /*margin-top: 3em;*/
+  /*margin-bottom: 3em;*/
   min-width: 40em;
 }
 
@@ -36,10 +36,12 @@
   padding-left: 3em;
   padding-right: 3em;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 #viewed_article {
-  position: absolute;
+  margin-top: 3em;
+  position: absolute; /* Don't need this when I'm using translate */
   display: block;
   /* max-height: none; */
   height: auto;
@@ -56,12 +58,11 @@
   transition-duration: var(--trans);
   height: 0;
   overflow: hidden;
-
 }
 
 #article_content {
   height: 0;
-  transition-duration: 0.4s;
+  transition-duration: var(--trans);
 }
 
 .mock_article_content {
@@ -99,5 +100,4 @@
   padding: 0.5em;
   font-size: 12pt;
   transition: opacity var(--trans);
-
 }

@@ -32,7 +32,7 @@
       // Reference to a book thatt is flying back into the shelf
       globalThis.book_flying_back = null;
       // Transformation timer indicating time taken to animate books flying out. Matched by a css var
-      globalThis.trans = 0.4;
+      globalThis.trans = 2;
       // Book currently being dragged around the shelf
       globalThis.dragged_book = null;
 
@@ -81,6 +81,7 @@
         <section id="shelf-container" class="shelf-container">
           <section id="shelf" class="shelf">
             <aside class="nonshelf"></aside>
+            <!-- SHELF: rpgtools -->
             <section class="shelf-header-container">
               <section class="shelf-header"><h1>RPG Tools</h1></section>
             </section>
@@ -96,6 +97,7 @@
             <a href="https://aidymouse.github.io/BookArranger/">
               <shelf-book title="Book Arranger"></shelf-book>
             </a>
+            <!-- STOP SHELF: rpgtools -->
             <section class="shelf-header-container">
               <section class="shelf-header"><h1>RPG Blog</h1></section>
             </section>
@@ -788,7 +790,8 @@
 
       <!-- Used to make the illusion of the book flying back into place -->
       <!-- TODO: give this events so the shelf is still responsive -->
-      <section id="floating_book" class="floating_book"></section>
+      <section id="floating_book" class="article-sizing-shared">
+      </section>
     </main>
 
     <main class="screen viewer_view" id="viewer_view">
