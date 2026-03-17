@@ -188,6 +188,7 @@ shelf-book {
 #floating_book {
   clip-path: rect(0px 100% 100% 0px);
   position: absolute;
+	z-index: 10;
 }
 
 /* Old class */
@@ -203,6 +204,7 @@ shelf-book {
 /* } */
 
 .floating_book .fb_heading_container {
+	z-index: 35;
   position: absolute;
   top: 0;
   left: 0;
@@ -217,4 +219,20 @@ shelf-book {
 
 .shelf-footer {
   background-color: var(--shelf-shelftop);
+}
+
+/** This fake background is what fades away when the viewer closes. It actually exists in the shelf */
+#fake_background {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+
+	z-index: 9;
+
+	pointer-events: none;
+	background-color: rgba(0, 0, 0, 0);
+	
+	
 }

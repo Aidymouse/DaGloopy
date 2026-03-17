@@ -1,8 +1,10 @@
+import { set_style } from './util.js'
 // TODO: copy the book elem into the floating loader and have it fade out
 export const initiate_viewer = (e) => {
-  //
+  
   // Show the viewer
-  viewer_view.style.display = "flex";
+  viewer_view.style.display = "flex"; // As opposed to NONE
+  viewer_view.style['background-color'] = "rgba(0, 0, 0, 0)";
 
   // Clear the viewed article
   article_content.innerHTML = "";
@@ -27,6 +29,10 @@ export const initiate_viewer = (e) => {
     transform: `translate(0px, 0px)`,
     ["clip-path"]: `rect(0px 100% 100% 0px)`,
   });
+
+  //viewer_view.style['background-color'] = "rgba(0, 0, 0, 0.6)";
+
+  fake_background.style['background-color'] = "rgba(0, 0, 0, 0.6)";
 };
 
 // TODO:
@@ -50,6 +56,13 @@ export const close_viewer = () => {
 
   viewer_view.style.display = "none";
 
+  // Reset the viewed article content.
+  // Aside from cleanliness, this also prevents weird height slide behaviour when viewing a short article after a long one
+  const viewed_article_content = viewed_article.querySelector("#article_content");
+  viewed_article_content.innerHTML = "";
+  viewed_article_content.style['height'] = "0px";
+
+  // Set up floating book (in the shelf)
   floating_book.style["transition-duration"] = `0s`;
   floating_book.style["background-color"] = `var(--article-bg)`;
   floating_book.style["margin-top"] = `0px`;
@@ -60,6 +73,7 @@ export const close_viewer = () => {
 
   var x = floating_book.offsetLeft;
 
+  // Set off floating book
   floating_book.style["transition-duration"] = `${globalThis.trans}s`;
   floating_book.style["left"] = `${book_in_shelf_rect.x}px`;
   floating_book.style["top"] = `${book_in_shelf_rect.y}px`;
@@ -76,7 +90,12 @@ export const close_viewer = () => {
     floating_article_content.id = '';
   }, globalThis.trans * 1000)
 
-  // TODO: Spawn in fake background (that immediately fades)
+  fake_background.style['background-color'] = 'rgba(0, 0, 0, 0)'
+
+
+
+	
+
 };
 
 /** Sets elem1's top, left, width and height to the x, y, width, height of elem2
@@ -89,10 +108,4 @@ export const match_size = (elem1, elem2) => {
   elem1.style.top = `${rect.y}px`;
   elem1.style.width = `${rect.width}px`;
   elem1.style.height = `${rect.height}px`;
-};
-
-export const set_style = (elem, style) => {
-  for (const [styleKey, styleVal] of Object.entries(style)) {
-    elem.style[styleKey] = styleVal;
-  }
 };

@@ -794,16 +794,18 @@
         ondragenter="enter_drop_zone(event)"
       ></section>
 
+      <div id="fake_background" class="viewer-background-shared"></div>
+
       <!-- Used to make the illusion of the book flying back into place -->
       <!-- TODO: give this events so the shelf is still responsive -->
       <section id="floating_book" class="article-sizing-shared">
       </section>
     </main>
 
-    <main class="screen viewer_view" id="viewer_view">
+    <main class="screen viewer_view viewer-background-shared" id="viewer_view">
 
       <section class="ghost article-sizing-shared">
-        <section id="ghost_article_content" class="article-content-shared" opacity: 0;">
+        <section id="ghost_article_content" class="ghost article-content-shared">
           <!-- Text will go here -->
         </section>
       </section>
