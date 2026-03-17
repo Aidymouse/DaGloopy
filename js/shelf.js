@@ -54,8 +54,10 @@ export const book_pointerup = (e) => {
         return;
       }
 
-      ghost_article_content.innerHTML = processed;
-      article_content.innerHTML = processed;
+      //ghost_article_content.innerHTML = processed;
+      //article_content.innerHTML = processed;
+
+      //article_content.style['height'] = ghost_article_content.style['height']
 
       // viewed_article_content.innerHTML = processed;
       // mock_article_content.innerHTML = processed;

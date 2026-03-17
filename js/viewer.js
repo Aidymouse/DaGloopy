@@ -9,18 +9,29 @@ export const initiate_viewer = (e) => {
 	// Clear the viewed article
 	article_content.innerHTML = "";
 
+	const click_rect = e.currentTarget.getBoundingClientRect();
+	const rect = viewed_article.getBoundingClientRect();
+
 	// Set the floating loader to the clicked books pos
 	set_style(viewed_article, {
 		["transition-duration"]: "0s",
+		display: 'block', // Reset if been closed before
+		transform: `translate(${click_rect.x - rect.x}px, ${click_rect.y - rect.y}px)`,
 	});
-	match_size(viewed_article, e.currentTarget);
-	viewed_article.style.display = "block"; // Reset if been closed before
+	//match_size(viewed_article, e.currentTarget);
+	viewed_article.style.display = "block";
+
+
 
 	let x = viewed_article.offsetLeft;
 	viewed_article.style["transition-duration"] = `${globalThis.trans}s`;
 
-	viewed_article.style.opacity = "1"; // Reset if been closed before
-	//viewed_article.style.height = ""; // Reset if been closed before
+	viewed_article.style.opacity = "1";
+	set_style(viewed_article, {
+		opacity: '1',
+		transform: `translate(0px, 0px)`
+	})
+	//viewed_article.style.height = ""; 
 
 
 	// let x = floating_loader.offsetLeft;

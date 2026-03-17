@@ -32,7 +32,7 @@
   line-height: 1.5;
 }
 
-.viewed_article {
+#viewed_article {
   position: absolute;
   display: block;
   /* max-height: none; */
