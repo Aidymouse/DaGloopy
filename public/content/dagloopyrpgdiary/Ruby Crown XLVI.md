@@ -22,9 +22,9 @@ The groaning noise of the dragons internals, come back to life with fire, contin
 
 A rush of hot air expels from the dragons mouth. "Ahh... but have they been told of _my_ power."
 
-Now the cavern rocks and the dragon begins to move. It's plates bunching together and screaming with exertion as they grind against one another. The dragon heaves its great mass onto its hind legs, lava sliding off of its shiny exterior and leaving no mark. Now it's wings unfold. The skin between its fingers is like molten metal. It catches and displays the orange underglow from the magma. Sanarms snake-like neck rears up and flicks his head towards the sky.
+Now the cavern rocks and the dragon begins to move. It's plates bunching together and screaming with exertion as they grind against one another. The dragon heaves its great mass onto its hind legs, lava sliding off of its shiny exterior and leaving no mark. Now it's wings unfold. The skin between their fingers is like molten metal. It catches the orange underglow from the magma. Sanarms snake-like neck rears up and flicks his head towards the sky.
 
-"I am the chrome chaos warrior! I am the dragon of legend! You call me Sanarm, but I have no true name, for I am beyond your understand. I am beyond this world. I am..."
+"I am the chrome chaos warrior! I am the dragon of legend! You call me Sanarm, but I have no true name, for I am beyond your understanding. I am beyond this world. I am..."
 
 The whine of metal straining echoes from the dragons body as pressure builds within it. Then at once, a ear-splitting roar explodes from the dragons mouth, shaking the leaves of the cavern, twisting a spiral through the smoke. It fills the chamber entire, fills the heads of all those within. It blankets the countryside away from the mountain. In it, every memory the dragon has witnessed, every triumph, every scorn, and the bitter, bitter taste of its defeat. As if it has been stewing here for hundreds of years.
 
