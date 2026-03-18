@@ -1,6 +1,8 @@
 date:16 March 2026
 series:riddle of steel
 
+# The Riddle of Steel VII
+
 The Book of White Names consider their next move.
 
 The best move seems to be moving the survivors further back into the cave, but with so many injured it's unsure how long that would take. Even then, it's not a guarantee that they'll be protected against the fish men.
