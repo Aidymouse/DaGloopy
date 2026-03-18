@@ -23,7 +23,7 @@ What follows is a summary of their expeditions through the Ajira-ni forest.
 
 **Expedition One (July 1 - July 9)**
 
-![Korianis Expedition Map](/_images/korianis%20expedition.jpg)
+![Korianis Expedition Map](/public/img/korianis%20expedition.jpg)
 
 For the first 5 days of travelling south, the gang finds nothing interesting except a body of water. They have no way of crossing it, so they start heading around it and then realise they're running low on food. They decide to head west and then circle around back to the boat to retrieve more supplies.
 

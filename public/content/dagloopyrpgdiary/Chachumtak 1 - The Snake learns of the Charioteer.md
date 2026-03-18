@@ -9,7 +9,7 @@ I have dubbed his PC The Charioteer, because that's his profession and as far as
 
 At this point in time (10 September 2022) the explored part of the island is this:
 
-![Chachumtak Map](/_images/chachumtak%201.png)
+![Chachumtak Map](/public/img/chachumtak%201.png)
 
 **The Snake learns of the charioteer**
 
