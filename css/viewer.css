@@ -41,6 +41,10 @@
   overflow: hidden;
 }
 
+.article-content-shared img {
+  max-width: 100%;
+}
+
 #viewed_article {
   margin-top: 3em;
   position: absolute; /* Don't need this when I'm using translate */
