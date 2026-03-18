@@ -33,6 +33,12 @@ export const initiate_viewer = (e) => {
 	//viewer_view.style['background-color'] = "rgba(0, 0, 0, 0.6)";
 
 	fake_background.style['background-color'] = "rgba(0, 0, 0, 0.6)";
+
+	// Set a timeout to do things after animation has finished
+	setTimeout(() => {
+		// This ensured images that load or resizing the page keeps the whole article readable.
+		article_content.style.height = 'auto';
+	}, globalThis.trans * 1000)
 };
 
 // TODO:
