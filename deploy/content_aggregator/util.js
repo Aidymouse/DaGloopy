@@ -35,6 +35,6 @@ export const get_article_html = (article) => `<shelf-book
     title="${article.title}"
     date="${article.timestamp ? get_nice_date(article.timestamp) : ""}"
     series="${article.series}"
-></shelf-book>`;
+></shelf-book>`.replace(/\n/gm, "");
 
 export const shelf_regex = `<!-- SHELF: shelftitle -->(.|\\n)*<!-- STOP SHELF: shelftitle -->`;

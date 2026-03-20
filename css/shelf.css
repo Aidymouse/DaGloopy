@@ -82,9 +82,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   border-top-left-radius: 50% 3em;
   border-top-right-radius: 50% 3em;
   margin-top: calc(1.2em + 1px);
+}
+
+.shelf-header .shelf-header-heading {
+  margin-top: 0px;
+  margin-bottom: 0.2em;
+}
+
+.shelf-header .shelf-header-subtitle {
+  font-style: italic;
 }
 
 /** An article sitting on the shelf has the class book */
