@@ -71,21 +71,31 @@
 
 .shelf-header-container {
   width: 100%;
-  background-color: var(--shelf-back-wall);
-  margin-top: calc(1em);
+  /*background-color: var(--shelf-back-wall);*/
+	margin-top: calc(1.2em + 1px);
+	margin-bottom: calc(1.2em + 1px);
 }
 
 .shelf-header {
   width: 100%;
   background-color: var(--shelf-header);
-  height: calc(6.6em + 3px);
+  height: calc(4.4em + 2px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-top-left-radius: 50% 3em;
-  border-top-right-radius: 50% 3em;
-  margin-top: calc(1.2em + 1px);
+	border-radius: 1em;
+  /*border-top-left-radius: 50% 3em;*/
+  /*border-top-right-radius: 50% 3em;*/
+  /*margin-top: calc(1.2em + 1px);*/
+}
+
+.shelf-header h1 {
+	color: transparent;
+	-webkit-background-clip: text;
+	background-color: black;
+	background-clip: text;
+	text-shadow: 2px 2px 3px #333;
 }
 
 .shelf-header .shelf-header-heading {
