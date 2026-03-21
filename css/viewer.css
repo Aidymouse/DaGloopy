@@ -39,10 +39,15 @@
   padding-right: 3em;
   line-height: 1.5;
   overflow: hidden;
+	font-family: var(--font-article-text);
 }
 
 .article-content-shared img {
   max-width: 100%;
+}
+
+.article-content-shared h1, h2, h3 {
+	font-family: var(--font-headings);
 }
 
 #viewed_article {

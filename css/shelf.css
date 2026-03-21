@@ -14,7 +14,6 @@
 }
 
 .shelf-overall-container {
-  position: relative;
   width: 100%;
   height: 100%;
 
@@ -69,38 +68,47 @@
   height: 5em;
 }
 
+/* The top level parent element of a labels */
+/* I don't remember why I need a container here */
 .shelf-header-container {
   width: 100%;
   /*background-color: var(--shelf-back-wall);*/
-	margin-top: calc(1.2em + 1px);
-	margin-bottom: calc(1.2em + 1px);
+		 margin-top: calc(1.2em + 1px);
+		 margin-bottom: calc(1.2em + 1px);
 }
+
 
 .shelf-header {
   width: 100%;
   background-color: var(--shelf-header);
-  height: calc(4.4em + 2px);
+  height: calc(6.6em + 3px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-	border-radius: 1em;
-  /*border-top-left-radius: 50% 3em;*/
-  /*border-top-right-radius: 50% 3em;*/
-  /*margin-top: calc(1.2em + 1px);*/
-}
-
-.shelf-header h1 {
-	color: transparent;
-	-webkit-background-clip: text;
-	background-color: black;
-	background-clip: text;
-	text-shadow: 2px 2px 3px #333;
+	border: solid 4px var(--shelf-header-border);
+	box-sizing: border-box;
+	padding: 0.7em;
 }
 
 .shelf-header .shelf-header-heading {
   margin-top: 0px;
   margin-bottom: 0.2em;
+}
+
+.shelf-header-inner {
+  width: 100%;
+	height: 100%;
+  background-color: var(--shelf-header);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+	border: solid 2px var(--shelf-header-border);
+}
+
+.shelf-header-inner .shelf-header-text {
+	margin: 0;
 }
 
 .shelf-header .shelf-header-subtitle {
@@ -149,10 +157,11 @@ shelf-book {
 .book h2,
 .floating_book h2 {
   width: 100%;
+		 font-family: var(--font-site-text);
   margin: 0;
   margin-left: 0.5em;
   font-weight: normal;
-  font-size: 13pt;
+  font-size: 11pt;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

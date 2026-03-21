@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/viewer.css" />
     <link rel="icon" href="./public/favicon.ico" />
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
     <script type="module" src="./js/shelf.js"></script>
     <script type="module" src="./js/viewer.js"></script>
     <script src="./js/showdown.min.js"></script>
@@ -37,7 +41,6 @@
       globalThis.trans = 0.4;
       // Book currently being dragged around the shelf
       globalThis.dragged_book = null;
-
 
       populate_rss();
       /**
@@ -85,10 +88,15 @@
         <section id="shelf-container" class="shelf-container">
           <section id="shelf" class="shelf">
             <aside class="nonshelf"></aside>
-            <!-- SHELF: rpgtools -->
+
             <section class="shelf-header-container">
-              <section class="shelf-header"><h1>RPG Tools</h1></section>
+              <section class="shelf-header">
+				  <section class="shelf-header-inner">
+				  <h1 class="shelf-header-text">RPG Tools</h1>
+				  </section>
+			  </section>
             </section>
+            <!-- SHELF: rpgtools -->
             <a href="https://hexfriend.net">
               <shelf-book
                 title="Hexfriend"
@@ -103,7 +111,11 @@
             </a>
             <!-- STOP SHELF: rpgtools -->
             <section class="shelf-header-container">
-              <section class="shelf-header"><h1>RPG Blog</h1></section>
+              <section class="shelf-header">
+              <section class="shelf-header-inner">
+<h1>RPG Blog</h1>
+</section>
+</section>
             </section>
             <!-- SHELF: dagloopyrpg -->
 <shelf-book    contenturl="content/dagloopyrpg/Using Clocks for Poisons and Diseases.md"    title="Using Clocks for Poisons and Diseases"    date="16 Apr 2023"    series="using"></shelf-book>
@@ -133,19 +145,15 @@
 <shelf-book    contenturl="content/dagloopyrpg/korianis hex fill procedure.md"    title="korianis hex fill procedure"    date=""    series="korianis"></shelf-book>
 <shelf-book    contenturl="content/dagloopyrpg/the kind of games I run.md"    title="the kind of games I run"    date=""    series="the kind"></shelf-book>
 <!-- STOP SHELF: dagloopyrpg -->
-            <section class="shelf-header-container">
-              <section class="shelf-header">
-                <h1 class="shelf-header-heading">New Arrivals</h1>
-                <subtitle class="shelf-header-subtitle">My RSS Feed</subtitle>
-              </section>
-            </section>
             <!-- SHELF: rss feed -->
             <!-- STOP SHELF: rss feed -->
 
 
             <section class="shelf-header-container">
               <section class="shelf-header">
+              <section class="shelf-header-inner">
                 <h1>RPG Diary</h1>
+              </section>
               </section>
             </section>
             <!-- SHELF: dagloopyrpgdiary -->

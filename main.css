@@ -6,15 +6,23 @@
   --article-bg: #333333;
 
   --shelf-bg: #1a0d00;
-  --shelf-shelftop: #4d2600;
-  --shelf-timber: #4c2000;
-  --shelf-header: #3c1500;
+  --shelf-shelftop: #2c1702;
+  --shelf-timber: #331a08;
+  --shelf-header: #582d16;
+  --shelf-header-border: #6e5130;
   --shelf-back-wall: #000000;
 
-  --book-bg: #996633;
+  --book-bg: #39230c;
 
   --text-main: #f2f2f2;
   --text-link: #8cc63f;
+
+  --font-fallback: -apple-system, BlinkMacSystemFont, 'Times New Roman', "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  --font-headings: "Merriweather";
+  --font-site-text: "Open Sans";
+  --font-article-text: "Segoe UI", "Open Sans";
 
   --trans: 0.4s;
 }
@@ -28,6 +36,10 @@
  * 36: Floating Loader
  *
  */
+
+h1, h2, h3, h4, h5 {
+	font-family: var(--font-headings);
+}
 
 pre {
   white-space: pre-line;
@@ -52,9 +64,7 @@ html {
   height: 100%;
 
   color: var(--text-main);
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Times New Roman', "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-site-text);
 }
 
 body {
