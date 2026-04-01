@@ -11,3 +11,5 @@ Tags: theory
  - [Conveying compelling and complete worlds through implication](https://whosemeasure.blogspot.com/2021/03/the-school-of-evocation-conveying.html) solidifies my thinking about why I prefer the old schools descriptive action over checks (e.g. "how do you disarm the poison dart" rather than "give me a thieves tools check")
 
  - [Dungeon Room Index: Hallways](https://dungeonscrawler.blogspot.com/2025/02/dungeon-room-index-hallways.html) is a wonderful exploration of hallways. Gets me thinking about the dungeon in a more concrete way, full of great examples and drawings.
+
+ - [The Blorb Principles](https://idiomdrottning.org/blorb-principles) is a really good breakdown of a specific game style. It's a good basis to start from when I think about the games I run. I'm not entirely blorby, but I have a blorby soul.
