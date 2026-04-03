@@ -9,8 +9,9 @@ export const populate_rss = () => {
 
 	for (const source of subscribed_sources) {
 		// Waaah. Cors broked my feed :( :( :(
-		fetch(source).then(fr => {
-			console.log(fr)
+		//fetch(source, {headers: {"Content-Type": "text/plain"}}).then(fr => {
+		fetch("/rss/hi", {headers: {"Content-Type": "text/plain"}, method: 'GET'}).then(fr => {
+			fr.text().then(t => console.log(t))
 		})
 	}
 
