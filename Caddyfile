@@ -1,0 +1,7 @@
+:5196 {
+
+	reverse_proxy /rss/* :8080
+
+	file_server
+
+}

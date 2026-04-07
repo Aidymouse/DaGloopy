@@ -27,16 +27,16 @@
 
 /* Styles shared by the article viewed and the invisible height acquirer */
 .article-sizing-shared {
-  width: 40%;
-  max-width: 40%;
+  width: 45%;
+  max-width: 45%;
   /*margin-top: 3em;*/
   /*margin-bottom: 3em;*/
   min-width: 40em;
 }
 
 .article-content-shared {
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-left: 6em;
+  padding-right: 6em;
   line-height: 1.5;
   overflow: hidden;
 	font-family: var(--font-article-text);
