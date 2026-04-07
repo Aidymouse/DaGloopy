@@ -1,3 +1,5 @@
+date:7 April 2167
+
 ```
 # Classified File EP-001-1
 
@@ -6,11 +8,13 @@ Latest update on the continuation of the Ethera project.
 ## Platform EE-CD-Central
 
 Construction has been swift since it's start two months ago. By all appearances we have constructed an oil platform built coordinated with Seabed Extraction and Allied Logistics Oil Company Ltd.
+```
 
 ![Ethera 1](/public/img/etherea-platform-1.jpg)
 
 ![If you are reading this, I implore you, find The Light of Halcyon and get him to abandon The Centenniel Expedition.](/public/img/etherea-platform-2.jpg)
 
+```
 Following plans derived from the work of Dr. [EXPUNGED], refinery chamber to be replaced with one of our own design.
 
 Lab supplies and personnel already supplied. To be shipped in when ready.
@@ -31,6 +35,7 @@ The mistakes of the past cannot be allowed to happen again. That includes the re
 
 Storm
 ```
+---
 
 ```
 # Classified File ZF-140-1
@@ -62,6 +67,7 @@ Placed with the group. Intelligence reports claim she knows little enough to be 
 First encountered in ruins of Epsilon-Gamma, but attendance at the lantern festival (see file ZF-90-2) is likely.
 
 ```
+---
 
 ```
 
@@ -104,6 +110,7 @@ I will NOT have this research wasted. The HSO may take on foreign influence, but
 xx-2155 - Experimentation Started in earnest. See individual experimentation files for details. This file maintained as experiment log.
 
 ## Experiment Log
+```
 
 | Experiment                 | Status     | Results      | Comments                                                             |
 |----------------------------|------------|--------------|----------------------------------------------------------------------|
@@ -131,6 +138,7 @@ xx-2155 - Experimentation Started in earnest. See individual experimentation fil
 | Direct Contact             | Pending... |              |                                                                      | 
 
 
+```
 **Addendum dated xx-2167**
 
 Despite catastrophic results, experimentation proved successful. Control is maintained. Conclusion: too much leniency applied. The next subject will not be granted such affordances. Control is to be retained by Halcyon forces. Upon the projects completion, bidding may start as early as the following year, following follow up conditioning. Social placement has been secured for early next year.
