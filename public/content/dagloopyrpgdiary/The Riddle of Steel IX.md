@@ -19,6 +19,4 @@ The Burn is cremated inside one of the hags huts while Horang is put to rest on 
 
 The Book descends The Sword, stopping to rescue some treasure from the harpy lair ship (a +1 cutlass, some mariners armor and some additional treasure will come in handy!). At the base of the cliff they are relieve to find the rest of the volunteers safe.
 
-<<When we check out the fishmens lair I'll put it here>>
-
-The Book return to the raft and set sail for home. The journey is easier now that the fog has lifted. And though the rowing is easier, the weight missing from the raft is anything but comforting.
+Before they can leave, the wish to check out the fish mens lair.
