@@ -31,7 +31,7 @@ The next morning Icoriol confides he used to be a citizen of Red Rock Quarry, a 
 
 They follow fellow plunderes across the grassy hills, eventually coming to the derelict town. In the trough of a valley sits a town on a broken plate of earth. Two great raised sections have collapsed houses along seams and created two large flat cliffs on the southern edge of town.
 
-![Red Rock](/public/img/redrock.png)
+![Red Rock](/DaGloopy/public/img/redrock.png)
 
 The Friends enter on the northern (rightmost in the image) road. Red Rock is like a ghost town, not crumbling, but not lived in. The plunderers they followed stop to pick through old houses, and The Friends quickly team up. Neither team wants to be caught off guard. Exploring the empty roads, The Friends spy a mound of gold and ingots. Upon the mound stand five squart stone creatures with three arms and three legs apiece. They snack on the treasure as if it were a pile of walnuts.
 

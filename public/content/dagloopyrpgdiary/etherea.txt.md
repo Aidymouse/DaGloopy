@@ -10,9 +10,9 @@ Latest update on the continuation of the Ethera project.
 Construction has been swift since it's start two months ago. By all appearances we have constructed an oil platform built coordinated with Seabed Extraction and Allied Logistics Oil Company Ltd.
 ```
 
-![Ethera 1](/public/img/etherea-platform-1.jpg)
+![Ethera 1](/DaGloopy/public/img/etherea-platform-1.jpg)
 
-![If you are reading this, I implore you, find The Light of Halcyon and get him to abandon The Centenniel Expedition.](/public/img/etherea-platform-2.jpg)
+![If you are reading this, I implore you, find The Light of Halcyon and get him to abandon The Centenniel Expedition.](/DaGloopy/public/img/etherea-platform-2.jpg)
 
 ```
 Following plans derived from the work of Dr. [EXPUNGED], refinery chamber to be replaced with one of our own design.
