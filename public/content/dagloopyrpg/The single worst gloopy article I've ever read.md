@@ -5,7 +5,7 @@ Tags: 5th edition, bitching, useless
 
 I'm not very intelligent, creatures.
 
-I'm blowing the whistle. I'm calling myself out. [This article](https://dagloopyrpg.blot.im/the-single-worst-piece-of-rpg-adventure-text-i-ve-ever-read-a-summary-of-my-problem-with-wild-beyond) fucking sucks.
+I'm blowing the whistle. I'm calling myself out. [This article](/?article=the%20single%20worst%20gloopy) fucking sucks.
 
 Alright, maybe that's a little harsh. It does suck though. There are two main problems:
 
