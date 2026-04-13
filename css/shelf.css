@@ -74,10 +74,10 @@
 /* The top level parent element of a labels */
 /* I don't remember why I need a container here */
 .shelf-header-container {
-  width: 100%;
-  /*background-color: var(--shelf-back-wall);*/
-		 margin-top: calc(1.2em + 1px);
-		 margin-bottom: calc(1.2em + 1px);
+				width: 100%;
+			 /*background-color: var(--shelf-back-wall);*/
+			 margin-top: calc(1.2em + 1px);
+			 margin-bottom: calc(1.2em + 1px);
 }
 
 
@@ -130,7 +130,7 @@ shelf-book {
 
 .book {
   display: grid;
-  grid-template-columns: 3fr 0.6em 1fr;
+  grid-template-columns: 2fr 0.6em 1fr;
   grid-column-gap: 0.5em;
 
   background-color: var(--book-bg);
