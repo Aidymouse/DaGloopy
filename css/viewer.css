@@ -34,6 +34,7 @@
   min-width: 40em;
 }
 
+
 .article-content-shared {
   padding-left: 6em;
   padding-right: 6em;
@@ -41,6 +42,7 @@
   overflow: hidden;
 	font-family: var(--font-article-text);
 }
+
 
 .article-content-shared img {
   max-width: 100%;
@@ -61,6 +63,24 @@
   background-color: var(--article-bg);
 
   overflow: hidden;
+}
+
+@media (width <= 500px) {
+	.article-sizing-shared {
+		width: 100%;
+		max-width: 100%;
+		min-width: 0px;
+	}
+
+	.article-content-shared {
+			padding-left: 1em;
+			padding-right: 1em;
+	}
+
+	#viewed_article {
+		margin-top: 0em;
+	}
+
 }
 
 .viewed_article_content {

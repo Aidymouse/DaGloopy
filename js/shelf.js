@@ -35,12 +35,15 @@ export const load_article = (url, load_callback) => {
   });
 };
 
-/* */
-export const book_pointerup = (e) => {
-  const content = e.currentTarget.getAttribute("data-contenturl");
+/*
+ * @param articleUrl {string} -
+ * @param bookElement {HTMLElement} -
+ */
+export const doLoadArticle = (bookElement) => {
+  const content = bookElement.getAttribute("data-contenturl");
 
-  e.currentTarget.style.opacity = "0";
-  globalThis.viewed_book = e.currentTarget;
+  bookElement.style.opacity = "0";
+  globalThis.viewed_book = bookElement;
 
   const load_start_contenturl = content;
   load_article(`public/${content}`, async (res, processed, text = null) => {
@@ -68,5 +71,11 @@ export const book_pointerup = (e) => {
     }, 0); // <-- this is a load time simulator
   });
 
-  initiate_viewer(e);
+  initiate_viewer(bookElement);
+};
+
+/* */
+export const book_pointerup = (e) => {
+  navigate_to_article(e.currentTarget.getAttribute("data-contenturl"));
+  //doLoadArticle(e.currentTarget);
 };
