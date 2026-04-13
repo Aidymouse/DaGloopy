@@ -1,4 +1,5 @@
 .shelf_view {
+
   position: absolute;
   left: 0%;
   transition-duration: 0.2s;
@@ -40,7 +41,9 @@
   flex-flow: column wrap;
   height: 100%;
   /* TODO: media query to make this nicer on phone */
-  max-width: 400px;
+  /* TODO: make function of em */
+  max-width: 20em;
+
   min-width: 200px;
   column-gap: 1em;
 }
@@ -157,11 +160,15 @@ shelf-book {
 .book h2,
 .floating_book h2 {
   width: 100%;
-		 font-family: var(--font-site-text);
+	font-family: var(--font-site-text);
   margin: 0;
   margin-left: 0.5em;
   font-weight: normal;
-  font-size: 11pt;
+
+	/* Mobile Query */
+	/*font-size: 11pt;*/
+	font-size: 0.9em;
+
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
