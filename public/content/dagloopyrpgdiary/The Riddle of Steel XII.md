@@ -1,0 +1,18 @@
+date:26 Apr 2026
+series:riddle of steel
+
+# The Riddle of Steel XII
+
+The Hydra looms over The Book of White Names. **The Warden** and **Ganent** move to flee, but **Simon** stands fast, loosing two bolts from his crossbow. Miraculously, the bolts find two crucial marks in the hydras neck, and rend the head from its body. Gouts of blood slick the stone. Then the hydra rears back and lunges at **Nilbog**. Just as the jaws would slice the sprite in two, it freezes. **Nilbogs** cackle can be heard, and The Book watches incredulously as the hydra floats into the air, gets spun around three times, then shoved back into the water, stunned. Not quite itself, it bows its four remaining heads in reverence to **Nilbog**. At this moment, **Ganent** realises that the fallen rocks around them are actually giant stalactites from the roof. Calling this to attention, **Nilbog** ascends and provides enough light to see the roof. **The Gelid** blasts a sharp stalactite with four icy missiles, just enough for it to come loose. Before the hydra can shake off its stupor, its heart is pierced by a falling stone. Despite the peril, The Book emerges unscathed.
+
+**Nilbog** dances around, now the true master of the cave, while The Book pick through the hydras treasure. A solid value of coinage is joined by some magical scrolls and another cut gem. This one lacks the ember fleks, but is certainly magical in some way. **The Gelid** takes it. **Nilbog** also gives The Book a magical message bottle that will find its way to whomever is written on the label. The sprite says it was retrieved from a dead snake man many years ago (it cannot say how many, because it doesn't really *get* time). The letter within is in an unreadable script, but bares the same penmanship as whoever was writing to the hags.
+
+The Book recuperate in their new safehouse, and level up! **The Crouton** has a dream (or was it real?) of **Nilbog** standing over him. In the morning, he is touched by the Fey.
+
+The Book depart **Lord Nilbogs** cave and continue their journey to the northwest.
+
+**The Fiend** has a run in with a cursed pool that rots his flesh, though it appears to be only cosmetic. **The Wardens** magical hand retrieves a helmet from within the pool, which **The Fiend** dons instantly. Whatever cursed magic is within the healm covers his face with a veil of shadow, leaving only two red eyes visible.
+
+Further on, The Book stumble into a marsh. Thousands of slaps, occuring rhythmically, can be heard from far away. When they approach, The Book find thousands upon thousands of frogs, all hopping in unison in a great circle around a frog larger than a house. **The Fiend** emerges from the reeds where The Book watch this disturbing sight, and tries to take on of the frogs. The frog master gazes at **The Fiend**, but its power is resisted. At first. After enough dilly-dallying, **The Fiend** succombs to the frog power. The Book watch as he climbs up onto the platform and begins to hop with the frogs. Sensing an impendign darkness, **Ganent** retrieves **The Fiend**, luckily avoiding the same fate. The Book choose to press on further, wanting no part in the frog masters domain. Though they exhaust themselves, they following a river to a cavern where they can rest.
+
+In the night, **The Fiend** hears voices telling him to jump into the river. His mental fortitude failing him, he does so. The cold water shocks him enough to cry for help, which awakens The Book to an attack. A swarm of rats with exposed brains assail The Book with psychic power! **The Gelid** is also compelled to leap into the water before **Simons** crossbow scatters the swarm. The wet members of The Book are retrieved from the river and they complete their rest.
