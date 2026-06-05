@@ -46,36 +46,35 @@ One thing I don't like about PBTA games is that their dynamism comes at the expe
 
 ## My Take on the Solution
 
-Core Mechanic: To achieve something, roll equal to or below a characters attribute (STR, DEX, CON, etc. The usual lot.). If you do, the action succeeds. Otherwise, the GM will apply one of the following complications:
-    - The action fails
-    - It comes at a cost
+__Core Mechanic:__ To achieve something, roll equal to or below a characters attribute (STR, DEX, CON, etc. The usual lot.). If you do, the action succeeds. Otherwise, the GM will apply one of the following complications:
+
+ - The action fails
+ - It comes at a cost
 
 During a fight, an additional complication comes with a failed roll:
-    - An enemy acts.
 
-Combat happens in rounds. During one round, each character has two turns. A turn encompasses a movement and an action. Characters act in any order. The round ends once all player characters have taken both turns.
+ - An enemy acts.
 
-Every action, no matter how minor, has a roll. In many cases, the action itself cannot fail, but the roll determines if it can be achieved leaving enough room for an ally to act. On a failed roll, in addition to the action failing or coming at a cost, and enemy gets to act. An enemy action is like a player turn - they can move and take one action.
+__Rounds and Turns:__ Combat happens in rounds. During one round, each character has two turns. A turn encompasses a movement and an action. Characters act in any order. The round ends once all player characters have taken both turns.
 
-When a monster rolls to take an action, there is no succeess or failure, only soft hits and hard hits.
-
-If a monster fails a roll for an action, it's not that it fails, it's just that it's set up. If the monster gets another turn this round, they do not roll, the follow through on that action. Unless someone else has changed the situation. It is possible (and encouraged) for a monsters "soft setup" to be ruined by the intervention of another character (or even the same characters second turn).
-
-Monsters do not have action limits, and can act as many times in a round as players fail.
+An action is some major event, like swinging a sword, breaking down a door, tackling someone to the ground, escaping a grapple, or other such major events. Every action has a roll associated. A success means the action succeeds, a failure incurs the normal penalties described above, an an enemy gets to act. In some cases, the action itself cannot fail, but the roll determines if it can be achieved leaving enough room for an ally to act. On a failed roll, in addition to the action failing or coming at a cost, and enemy gets to act. An enemy action is like a player turn - they can move and take one action.
 
 When a player is out of actions, they cannot do any more this round until next round. The round concludes when all players have taken all their turns.
 
-At the end of the round, any monsters that have not yet acted may do so.
+__Monster Turns:__ When a monster rolls to take an action, there is no succeess or failure, only soft hits and hard hits.
 
-### Finer Points
-"Well, I'm just going to move away!" - If a character is the target of a soft action, it requires an action for them to move away from it.
+If a monster fails a roll for an action, it's not that it fails, it's just that it's set up. (The ogre ready's it's club, the sorcerer prepares a spell, etc.) If the monster gets another turn this round, and the situation has not changed, they complete the action automatically as if they had rolled a success. Player actions can interrupt this "ready state" of a monster. If a monster is interrupted in such a manner, they must roll if they get another action. 
+
+Monsters do not have action limits, and can act as many times in a round as players fail. If a round ends before all monsters have acted, each monster that has not yet acted may do so.
+
+If a player is the target of a readied soft action, and they want to get out the way, it requires an action roll to get away. For some actions (like having a gun trained on you) moving away doesn't ruin the set up (though doing something like leaping behind cover might.)
 
 ## Counter Arguments
-*"Just get good at spotlight management! Pay attention to your quiet players, or tell them to speak up."*
+ - *"Just get good at spotlight management! Pay attention to your quiet players, or tell them to speak up."*
 
 This is a valid point, but the energy expenditure goes up, and I'm just not that smart. A systemic solution is a better fit for me.
 
-*"So monsters in this system can't miss? Doesn't that go against your idea the monsters agency? Why have them roll at all?"*
+ - *"So monsters in this system can't miss? Doesn't that go against your idea the monsters agency? Why have them roll at all?"*
 
 Good point. I considered making it that monsters still hit or miss, it's just that the monsters first turn in a round were hard hits, and successes on subsequent turns are soft hits. I think this drags the round out into two seperate phases though (one where the monsters are ready to hit hard, and another where they can't do as much damage.) This is tactically interesting, but slows the round down.
 
