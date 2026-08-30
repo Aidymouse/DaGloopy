@@ -3,6 +3,7 @@ const series_color_map = {
   "royan empire": "#689923",
   "riddle of steel": "orange",
   "warriors of oschencham": "blue",
+  "occluse playtest": "#50c7c7",
 };
 // Color map aliases
 series_color_map["ruby"] = series_color_map["ruby crown"];
