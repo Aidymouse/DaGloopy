@@ -70,7 +70,8 @@ As for The Friends of Orthos...
 - Monkey rules long as The King of Orthos, and delves into Psionic studies with members of Ajira-ni court. His lifespan becomes long, and his time is spent shaping Orthosian civilisation during the cities reconstruction.
 - Balthazar, after a slew of intial conquests, retreats to Mt Sadrigal in The Desolation of Nildazi. Many venture to his mountain, but he sees none except The King, on those rare times he is needed.
 - Friend boards a boat unseen and is never heard from again
-- Talari Alar leaves Orthos and becomes the court mage of The Knights of the Black Rose, who are now dedicated to finding their true purpose again. When Lord Alamander the flame dies, Talari becomes the new commander.
+- ~~Talari Alar leaves Orthos and becomes the court mage of The Knights of the Black Rose, who are now dedicated to finding their true purpose again. When Lord Alamander the flame dies, Talari becomes the new commander.~~
+- Talari Alar spends some time in Solemnity. He constructs a magnificent tower in what becomes the Doson Wharf district. After some years, he leaves another simulacra of himself to watch the tower while he journeys the world to find out all he can about The Red Realm.
 - Icoriol Barzelous leaves the city after Balthazars betrayal, but returns in order to help the people of the city rebuild. He stays on as O.T.I.A leader and councilman until the city restabilizes, then spends more and more time in his workshop, creating magical goods for the general populace.
 - Siriel, following rumors, met up with her birth mother, a demon witch enacting a ritual to summon The Demon of Mist. Using a blood connection she has had since birth, she killed her mother and her infernal siblings, summoning The Demon of Smoke in it's place. As it's first and greatest servant, she wandered the world, furthering the aims of the demon.
 
