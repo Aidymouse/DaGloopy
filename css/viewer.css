@@ -60,9 +60,13 @@ h3 {
   height: auto;
   transition-duration: var(--trans);
 
-  background-color: var(--article-bg);
-
   overflow: hidden;
+}
+
+/* Handle BG - I can't just have BG on #viewed_article because i need this ugly spacer box at the bottom of the page */
+#viewed_article nav,
+#viewed_article section {
+  background-color: var(--article-bg);
 }
 
 /* Mobile screen size style overrides */
