@@ -10,116 +10,120 @@
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
 
     <script type="module" src="./js/shelf.js"></script>
     <script type="module" src="./js/viewer.js"></script>
     <script src="./js/showdown.min.js"></script>
 
     <script type="module">
+      import { process_markdown } from "./js/markdown.js"
+      import { populate_rss } from "./js/rss.js"
 
-      import { process_markdown } from "./js/markdown.js";
-      import { populate_rss } from "./js/rss.js";
+      import { load_article, book_pointerup, doLoadArticle } from "./js/shelf.js"
+      import { initiate_viewer, close_viewer } from "./js/viewer.js"
 
-      import { load_article, book_pointerup, doLoadArticle } from "./js/shelf.js";
-      import { initiate_viewer, close_viewer } from "./js/viewer.js";
+      window.book_pointerup = book_pointerup
+      window.close_viewer = close_viewer
 
-      window.book_pointerup = book_pointerup;
-      window.close_viewer = close_viewer;
-
-      import { ShelfBook } from "./components/shelfbook.js";
-      customElements.define("shelf-book", ShelfBook);
+      import { ShelfBook } from "./components/shelfbook.js"
+      customElements.define("shelf-book", ShelfBook)
 
       /**
        * GLOBAL STATE
        **/
       // Element reference to a book currently being viewed
-      globalThis.viewed_book = null;
+      globalThis.viewed_book = null
       // Reference to a book thatt is flying back into the shelf
-      globalThis.book_flying_back = null;
+      globalThis.book_flying_back = null
       // Transformation timer indicating time taken to animate books flying out. Matched by a css var
-      globalThis.trans = 0.4;
+      globalThis.trans = 0.4
       // Book currently being dragged around the shelf
-      globalThis.dragged_book = null;
+      globalThis.dragged_book = null
 
       // Source - https://stackoverflow.com/a/979995
       // Posted by Quentin, modified by community. See post 'Timeline' for change history
       // Retrieved 2026-04-13, License - CC BY-SA 4.0
 
       const parse_query_string = (query) => {
-	const urlVars = query.split("&");
-	const query_obj = {};
-	for (let i = 0; i < urlVars.length; i++) {
-	  const pair = urlVars[i].split("=");
-	  const key = decodeURIComponent(pair.shift());
-	  const value = decodeURIComponent(pair.join("="));
-	  // If first entry with this name
-	  if (typeof query_obj[key] === "undefined") {
-	    query_obj[key] = value;
-	    // If second entry with this name
-	  } else if (typeof query_obj[key] === "string") {
-	    const arr = [query_obj[key], value];
-	    query_obj[key] = arr;
-	    // If third or later entry with this name
-	  } else {
-	    query_obj[key].push(value);
-	  }
-	}
-	return query_obj;
+        const urlVars = query.split("&")
+        const query_obj = {}
+        for (let i = 0; i < urlVars.length; i++) {
+          const pair = urlVars[i].split("=")
+          const key = decodeURIComponent(pair.shift())
+          const value = decodeURIComponent(pair.join("="))
+          // If first entry with this name
+          if (typeof query_obj[key] === "undefined") {
+            query_obj[key] = value
+            // If second entry with this name
+          } else if (typeof query_obj[key] === "string") {
+            const arr = [query_obj[key], value]
+            query_obj[key] = arr
+            // If third or later entry with this name
+          } else {
+            query_obj[key].push(value)
+          }
+        }
+        return query_obj
       }
 
       window.navigate_to_home = () => {
-	if (globalThis.viewed_book) {
-	  close_viewer()
-	}
-	history.pushState({loadArticle: false}, "DaGloopy", "?")
+        if (globalThis.viewed_book) {
+          close_viewer()
+        }
+        history.pushState({ loadArticle: false }, "DaGloopy", "?")
       }
 
+      /**
+       *
+       */
       window.navigate_to_article = (articleUrl) => {
+        console.log("Looking for article with url", articleUrl)
+        const book =
+          document.querySelector(`[data-contenturl="${articleUrl}"]`) ??
+          document.querySelector(`[data-title="${articleUrl}"]`)
 
-	console.log("Looking for article with url", articleUrl)
-	const book = document.querySelector(`[data-contenturl="${articleUrl}"]`) ?? document.querySelector(`[data-title="${articleUrl}"]`)
+        if (!book) {
+          return
+        }
 
-	if (!book) {
-	  return
-	}
+        const article_url = book.getAttribute("data-contenturl")
 
-	const article_url = book.getAttribute("data-contenturl")
+        console.log("Found article with url", article_url)
 
-	console.log("Found article with url", article_url)
+        doLoadArticle(book)
 
-	doLoadArticle(book)
-	
-
-	// Update History
-	history.pushState({loadArticle: true, article:articleUrl}, book.getAttribute('data-title'), `?article=${book.getAttribute('data-title')}`)
-
+        // Update History
+        history.pushState(
+          { loadArticle: true, article: articleUrl },
+          book.getAttribute("data-title"),
+          `?article=${book.getAttribute("data-title")}`
+        )
       }
-
 
       // History
-      window.addEventListener("popstate", e => {
-	if (e.state.loadArticle === true) {
-	  navigate_to_article(e.state.article)
-	}
+      window.addEventListener("popstate", (e) => {
+        if (e.state.loadArticle === true) {
+          navigate_to_article(e.state.article)
+        }
 
-	if (e.state.loadArticle === false) {
-	  navigate_to_home()
-	}
-	
+        if (e.state.loadArticle === false) {
+          navigate_to_home()
+        }
       })
 
       const onReady = () => {
-	const urlVars = window.location.search.substring(1)
-	const parsedVars = parse_query_string(urlVars)
-	
-	if (parsedVars.article) {
-	  navigate_to_article(parsedVars.article)
-	}
+        const urlVars = window.location.search.substring(1)
+        const parsedVars = parse_query_string(urlVars)
 
+        if (parsedVars.article) {
+          navigate_to_article(parsedVars.article)
+        }
       }
 
       onReady()
@@ -134,50 +138,50 @@
 
   <body>
     <main
-	class="screen desk_view"
-	id="desk_view"
-	ondrop="desk_view_drop(event)"
-	ondragover="desk_view_dragover(event)"
-	>
-	<!-- THE DESK -->
+      class="screen desk_view"
+      id="desk_view"
+      ondrop="desk_view_drop(event)"
+      ondragover="desk_view_dragover(event)"
+    >
+      <!-- THE DESK -->
       <section
-	  id="desktop"
-	  class="desktop"
-	  ondragover="desk_dragover(event)"
-	  ondrop="desktop_drop(event)"
-	  >
-	  <article
-	      draggable="true"
-	      ondragstart="article_ondragstart(event)"
-	      ondragend="article_ondragend(event)"
-	      >
-	      <h2>Test</h2>
-	      <p>This is the context of test two. Not the summary! Lololol.</p>
-	  </article>
+        id="desktop"
+        class="desktop"
+        ondragover="desk_dragover(event)"
+        ondrop="desktop_drop(event)"
+      >
+        <article
+          draggable="true"
+          ondragstart="article_ondragstart(event)"
+          ondragend="article_ondragend(event)"
+        >
+          <h2>Test</h2>
+          <p>This is the context of test two. Not the summary! Lololol.</p>
+        </article>
       </section>
 
       <nav height="5em">
-	<button onclick="go_to_shelf_view()">To Shelf</button>
+        <button onclick="go_to_shelf_view()">To Shelf</button>
       </nav>
     </main>
 
     <!-- THE SHELF -->
     <main class="screen shelf_view" id="shelf_view">
       <section class="shelf-overall-container">
-	<nav id="shelftop" class="shelftop">
-	  <section id="shelftop-content" class="shelftop-content"></section>
-	</nav>
+        <nav id="shelftop" class="shelftop">
+          <section id="shelftop-content" class="shelftop-content"></section>
+        </nav>
 
-	<section id="shelf-container" class="shelf-container">
-	  <section id="shelf" class="shelf">
-	    <aside class="nonshelf"></aside>
+        <section id="shelf-container" class="shelf-container">
+          <section id="shelf" class="shelf">
+            <aside class="nonshelf"></aside>
 
             <section class="shelf-header-container">
               <section class="shelf-header">
-				  <section class="shelf-header-inner">
-				  <h1 class="shelf-header-text">RPG Tools</h1>
-				  </section>
-			  </section>
+                <section class="shelf-header-inner">
+                  <h1 class="shelf-header-text">RPG Tools</h1>
+                </section>
+              </section>
             </section>
             <!-- SHELF: rpgtools -->
             <a href="https://hexfriend.net">
@@ -195,10 +199,10 @@
             <!-- STOP SHELF: rpgtools -->
             <section class="shelf-header-container">
               <section class="shelf-header">
-              <section class="shelf-header-inner">
-<h1>RPG Blog</h1>
-</section>
-</section>
+                <section class="shelf-header-inner">
+                  <h1>RPG Blog</h1>
+                </section>
+              </section>
             </section>
             <!-- SHELF: dagloopyrpg -->
 <shelf-book    contenturl="content/dagloopyrpg/Dynamic Combat.md"    title="Dynamic Combat"    date="1 Apr 2026"    series="dynamic"></shelf-book>
@@ -231,12 +235,11 @@
             <!-- SHELF: rss feed -->
             <!-- STOP SHELF: rss feed -->
 
-
             <section class="shelf-header-container">
               <section class="shelf-header">
-              <section class="shelf-header-inner">
-                <h1>RPG Diary</h1>
-              </section>
+                <section class="shelf-header-inner">
+                  <h1>RPG Diary</h1>
+                </section>
               </section>
             </section>
             <!-- SHELF: dagloopyrpgdiary -->
@@ -342,53 +345,47 @@
 <shelf-book    contenturl="content/dagloopyrpgdiary/betwixt law and chaos I.md"    title="betwixt law and chaos I"    date=""    series="betwixt"></shelf-book>
 <!-- STOP SHELF: dagloopyrpgdiary -->
 
-	    <aside class="nonshelf"></aside>
-	  </section>
-	</section>
-	<footer class="shelf-footer"></footer>
+            <aside class="nonshelf"></aside>
+          </section>
+        </section>
+        <footer class="shelf-footer"></footer>
       </section>
 
       <section class="shelf-footer"></section>
-      <section
-	  id="desk-drop-zone"
-	  ondragenter="enter_drop_zone(event)"
-	  ></section>
+      <section id="desk-drop-zone" ondragenter="enter_drop_zone(event)"></section>
 
       <div id="fake_background" class="viewer-background-shared"></div>
 
       <!-- Used to make the illusion of the book flying back into place -->
       <!-- TODO: give this events so the shelf is still responsive -->
-      <section id="floating_book" class="article-sizing-shared">
-      </section>
+      <section id="floating_book" class="article-sizing-shared"></section>
     </main>
 
     <main class="screen viewer_view viewer-background-shared" id="viewer_view">
-
       <section class="ghost article-sizing-shared">
-	<section id="ghost_article_content" class="ghost article-content-shared">
-	  <!-- Text will go here -->
-	</section>
+        <section id="ghost_article_content" class="ghost article-content-shared">
+          <!-- Text will go here -->
+        </section>
       </section>
 
       <!-- Viewed Article is what matches to the books size and expands to article size -->
       <section id="viewed_article" class="article-sizing-shared">
-	<!-- TODO: book element to fade out here -->
-	<nav class="viewer-nav">
-	  <button onClick="navigate_to_home()">Back</button>
-	  <!-- TODO: next / prev in series buttons -->
-	</nav>
-	<section id="article_content" class="article-content-shared">
-	  <!-- Article content will load in here -->
-	</section>
-	<nav class="viewer-nav">
-	  <button onClick="navigate_to_home()">Back</button>
-	</nav>
-      </section id="article_sizer">
+        <!-- TODO: book element to fade out here -->
+        <nav class="viewer-nav">
+          <button onClick="navigate_to_home()">Back</button>
+          <!-- TODO: next / prev in series buttons -->
+        </nav>
+        <section id="article_content" class="article-content-shared">
+          <!-- Article content will load in here -->
+        </section>
+        <nav class="viewer-nav">
+          <button onClick="navigate_to_home()">Back</button>
+        </nav>
+        <section
+          id="scroll-spacer"
+          style="width: 100%; height: 3em; background-color: transparent"
+        ></section>
       </section>
-
-
     </main>
-
-
   </body>
 </html>

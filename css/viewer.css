@@ -31,25 +31,25 @@
   max-width: 45%;
   /*margin-top: 3em;*/
   /*margin-bottom: 3em;*/
-  min-width: 40em;
+  min-width: 50em;
 }
-
 
 .article-content-shared {
   padding-left: 6em;
   padding-right: 6em;
   line-height: 1.5;
   overflow: hidden;
-	font-family: var(--font-article-text);
+  font-family: var(--font-article-text);
 }
-
 
 .article-content-shared img {
   max-width: 100%;
 }
 
-.article-content-shared h1, h2, h3 {
-	font-family: var(--font-headings);
+.article-content-shared h1,
+h2,
+h3 {
+  font-family: var(--font-headings);
 }
 
 #viewed_article {
@@ -60,27 +60,31 @@
   height: auto;
   transition-duration: var(--trans);
 
-  background-color: var(--article-bg);
-
   overflow: hidden;
 }
 
+/* Handle BG - I can't just have BG on #viewed_article because i need this ugly spacer box at the bottom of the page */
+#viewed_article nav,
+#viewed_article section {
+  background-color: var(--article-bg);
+}
+
+/* Mobile screen size style overrides */
 @media (width <= 500px) {
-	.article-sizing-shared {
-		width: 100%;
-		max-width: 100%;
-		min-width: 0px;
-	}
+  .article-sizing-shared {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0px;
+  }
 
-	.article-content-shared {
-			padding-left: 1em;
-			padding-right: 1em;
-	}
+  .article-content-shared {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 
-	#viewed_article {
-		margin-top: 0em;
-	}
-
+  #viewed_article {
+    margin-top: 0em;
+  }
 }
 
 .viewed_article_content {
