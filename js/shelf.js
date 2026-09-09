@@ -1,5 +1,7 @@
-import { process_markdown } from "./markdown.js";
-import { initiate_viewer } from "./viewer.js";
+import { process_markdown } from "./markdown.js"
+import { initiate_viewer } from "./viewer.js"
+
+/** The Shelf is where articles are stored. **/
 
 /**
  * @param url (string)
@@ -8,12 +10,10 @@ import { initiate_viewer } from "./viewer.js";
  */
 export const load_article = (url, load_callback) => {
   if (!url.includes("content")) {
-    console.warn(
-      `URL ${url} doesn't appear to be in the content folder, not loading`,
-    );
-    return;
+    console.warn(`URL ${url} doesn't appear to be in the content folder, not loading`)
+    return
   }
-  const file_type = url.split(".").pop();
+  const file_type = url.split(".").pop()
 
   // TODO: headers based on file type
   // TODO: update loaded article register (cache?)
@@ -21,61 +21,59 @@ export const load_article = (url, load_callback) => {
   fetch(url, {
     headers: { "Content-Type": "text/plain" },
   }).then(async (res) => {
-    let text = null;
-    let processed = "";
+    let text = null
+    let processed = ""
 
     // Processing
     if (file_type === "md") {
-      text = await res.text();
+      text = await res.text()
       // Run through MD parser
-      processed = process_markdown(text);
+      processed = process_markdown(text)
     }
 
-    await load_callback(res, processed, text);
-  });
-};
+    await load_callback(res, processed, text)
+  })
+}
 
 /*
  * @param articleUrl {string} -
  * @param bookElement {HTMLElement} -
  */
 export const doLoadArticle = (bookElement) => {
-  const content = bookElement.getAttribute("data-contenturl");
+  const content = bookElement.getAttribute("data-contenturl")
 
-  bookElement.style.opacity = "0";
-  globalThis.viewed_book = bookElement;
+  bookElement.style.opacity = "0"
+  globalThis.viewed_book = bookElement
 
-  const load_start_contenturl = content;
+  const load_start_contenturl = content
   load_article(`public/${content}`, async (res, processed, text = null) => {
     // Simulate 1 second load time with setTimeout
     setTimeout(() => {
       // If there's a bad load time or something, and someone opens a book, closes it, then opens a new one, this if prevents the previosuly requested article from being put into the html
-      if (
-        globalThis.viewed_book?.getAttribute("data-contenturl") !==
-        load_start_contenturl
-      ) {
-        return;
+      const content_url = globalThis.viewed_book?.getAttribute("data-contenturl")
+      if (content_url !== load_start_contenturl) {
+        return
       }
 
-      ghost_article_content.innerHTML = processed;
-      article_content.innerHTML = processed;
+      ghost_article_content.innerHTML = processed
+      article_content.innerHTML = processed
 
-      const ghost_rect = ghost_article_content.getBoundingClientRect();
-      article_content.style["height"] = `${ghost_rect.height}px`;
+      const ghost_rect = ghost_article_content.getBoundingClientRect()
+      article_content.style["height"] = `${ghost_rect.height}px`
 
       // viewed_article_content.innerHTML = processed;
       // mock_article_content.innerHTML = processed;
       //
       // viewed_article_content.classList.add("open");
       // mock_article_content.classList.add("open");
-    }, 0); // <-- this is a load time simulator
-  });
+    }, 0) // <-- this is a load time simulator
+  })
 
-  initiate_viewer(bookElement);
-};
+  initiate_viewer(bookElement)
+}
 
 /* */
 export const book_pointerup = (e) => {
-  navigate_to_article(e.currentTarget.getAttribute("data-contenturl"));
+  navigate_to_article(e.currentTarget.getAttribute("data-contenturl"))
   //doLoadArticle(e.currentTarget);
-};
+}
