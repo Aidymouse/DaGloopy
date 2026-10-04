@@ -9,7 +9,7 @@ The playtest game is set in Solemnity, the city of jewels, 80 years after the ev
 
 The rules text we used is [Occluse Again - Core Playtest 30 Aug](https://docs.google.com/document/d/1kA_DdviFz2f9hMhNd02ppH9esjNJ5Jt5vGjSSX9AOoY/edit?tab=t.0#heading=h.kph6utvtvmd2) and it's regional companion [Occluse Again - City of Jewels Playtest 30 Aug](https://docs.google.com/document/d/1W_czkF9PVfYn2Zr7Vw_deF2xHfdQcV_Vt9Nm0gLu4Ho/edit?tab=t.0#heading=h.1yxgaotpt9bp).
 
-## Session Recount
+## Session Report
 
 Five inhabitants of Solemtown, strangers until a few hours ago, walk through the streets, drunk. They are
 
