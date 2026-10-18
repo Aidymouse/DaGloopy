@@ -1,9 +1,10 @@
 Date: 5 November 2021
 Tags: 5th edition, game stuff
+title:Putting 5th Edition Into 6 Levels
 
 # Putting 5th edition into 6 levels 
 
-greetings creatures
+Greetings creatures,
 
 In an attempt to flatten the power curve and ensure that players get something interesting at every level, I went through and [flattened every 5th edition class into 6 levels.](https://docs.google.com/document/d/1eIOy0Q1ofYwinWiDd8Uqk8qBqwDACorN0_IOA7c45tg/edit?usp=sharing)
 

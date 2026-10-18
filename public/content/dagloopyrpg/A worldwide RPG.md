@@ -1,5 +1,5 @@
 Date: 23 July 2022
-Tags: game stuff, worldwide RPG, OSR
+Tags: game stuff, worldwide RPG, occluse, OSR
 
 # A Worldwide RPG
  
