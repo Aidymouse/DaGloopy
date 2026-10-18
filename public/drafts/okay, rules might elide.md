@@ -8,6 +8,6 @@ Well, doing that well is harder than just describing someone picking a lock. And
 
 My point is: Masks has rules governing social interaction and they're meant to foster a kind of play-by-play that scenes take. You talk big emotions, someones labels get shifted, they either reject or accept, fueling a differnece in their character they can continue to work through, fueling more scenes.
 
-So if rules elide, how come masks has rules specifically for this? Could it be that PBTA games sidestep the whole idea by having their rules "triggered?"
+So if rules elide, how come masks has rules specifically for this? Could it be that PBTA games sidestep the whole idea by having their rules "triggered?" via fiction?
 
 (I should read some refutations before I continue this).
